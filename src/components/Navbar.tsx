@@ -12,7 +12,7 @@ export default function Navbar() {
           <Link href="#services" className="hover:text-primary transition-colors">Services</Link>
           <Link href="#location" className="hover:text-primary transition-colors">Location & Hours</Link>
         </div>
-        <BookNowButton className="bg-primary text-primary-foreground px-6 py-2.5 rounded-full text-sm font-medium hover:bg-primary/90 transition-colors shadow-md">
+        <BookNowButton className="bg-accent text-accent-foreground px-6 py-2.5 rounded-full text-sm font-medium hover:bg-accent/90 transition-colors shadow-md">
           Book Now
         </BookNowButton>
       </div>
