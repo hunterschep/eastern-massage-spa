@@ -77,7 +77,7 @@ export default function Services() {
            <div className="lg:sticky lg:top-32">
                 <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-xl mb-12">
                     <Image 
-                        src="/photos/stock2.jpg" 
+                        src="/eastern-massage-spa/photos/stock2.jpg" 
                         alt="Massage Oils and Stones" 
                         fill 
                         className="object-cover"
