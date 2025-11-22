@@ -6,6 +6,9 @@ export const size = {
   height: 32,
 }
 export const contentType = 'image/png'
+
+// Configure for static export
+export const dynamic = 'force-static';
  
 // Image generation
 export default function Icon() {
@@ -37,4 +40,3 @@ export default function Icon() {
     }
   )
 }
-

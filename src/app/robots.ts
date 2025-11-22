@@ -1,6 +1,8 @@
-import { Metadata } from "next";
+import { MetadataRoute } from "next";
 
-export default function Robots() {
+export const dynamic = 'force-static';
+
+export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: '*',
@@ -10,4 +12,3 @@ export default function Robots() {
     sitemap: 'https://easternmassagespa.com/sitemap.xml',
   };
 }
-

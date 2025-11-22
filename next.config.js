@@ -8,12 +8,7 @@ const nextConfig = {
   // If deploying to username.github.io/repo-name, you would need:
   // basePath: '/repo-name',
   
-  async headers() {
-    // Headers are not supported in 'output: export' (static site), 
-    // so we return empty array or remove this block if purely static.
-    // For GitHub Pages (static hosting), these headers won't apply anyway.
-    return [];
-  }
+  // Headers are not supported in 'output: export'
 };
 
 module.exports = nextConfig;
