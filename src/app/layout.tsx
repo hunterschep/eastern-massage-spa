@@ -21,14 +21,14 @@ const cormorant = Cormorant_Garamond({
 export const metadata: Metadata = {
   metadataBase: new URL("https://easternmassagespa.com"),
   title: {
-    default: "Eastern Massage Spa | Massage Therapy in Issaquah, WA",
-    template: "%s | Eastern Massage Spa",
+    default: "Orchid Bloom Massage | Massage Therapy in Issaquah, WA",
+    template: "%s | Orchid Bloom Massage",
   },
-  description: "Relax and rejuvenate at Eastern Massage Spa in Issaquah. Professional Swedish, Deep Tissue, and Mobile massage services. Call (206) 750-6868 to book.",
-  keywords: ["Massage Issaquah", "Eastern Massage Spa", "Deep Tissue Massage", "Swedish Massage", "Mobile Massage Issaquah", "Spa Issaquah", "Cupping Therapy", "Hot Stone Massage"],
-  authors: [{ name: "Eastern Massage Spa" }],
-  creator: "Eastern Massage Spa",
-  publisher: "Eastern Massage Spa",
+  description: "Relax and rejuvenate at Orchid Bloom Massage in Issaquah. Professional Swedish, Deep Tissue, and Mobile massage services. Call (206) 750-6868 to book.",
+  keywords: ["Massage Issaquah", "Orchid Bloom Massage", "Deep Tissue Massage", "Swedish Massage", "Mobile Massage Issaquah", "Spa Issaquah", "Cupping Therapy", "Hot Stone Massage"],
+  authors: [{ name: "Orchid Bloom Massage" }],
+  creator: "Orchid Bloom Massage",
+  publisher: "Orchid Bloom Massage",
   robots: {
     index: true,
     follow: true,
@@ -41,10 +41,10 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Eastern Massage Spa | Issaquah, WA",
+    title: "Orchid Bloom Massage | Issaquah, WA",
     description: "Professional massage therapy including Swedish, Deep Tissue, and Cupping in a relaxing atmosphere.",
     url: "https://easternmassagespa.com",
-    siteName: "Eastern Massage Spa",
+    siteName: "Orchid Bloom Massage",
     locale: "en_US",
     type: "website",
     images: [

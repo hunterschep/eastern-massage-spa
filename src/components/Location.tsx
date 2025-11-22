@@ -57,7 +57,7 @@ export default function Location() {
                     scrolling="no" 
                     marginHeight={0} 
                     marginWidth={0}
-                    title="Google Map of Eastern Massage Spa Location"
+                    title="Google Map of Orchid Bloom Massage Location"
                     className="absolute inset-0"
                 >
                 </iframe>
