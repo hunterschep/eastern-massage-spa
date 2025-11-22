@@ -51,6 +51,7 @@ export default function Hero() {
               className="object-cover hover:scale-105 transition-transform duration-700 ease-out"
               priority
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              unoptimized
             />
             {/* Decorative overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-60"></div>
