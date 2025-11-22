@@ -7,7 +7,7 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 bg-surface/90 backdrop-blur-md shadow-sm border-b border-stone-100">
       <div className="container mx-auto px-4 py-2 flex justify-between items-center">
         <Link href="/" className="flex items-center">
-          <div className="relative w-32 h-16 md:w-48 md:h-20">
+          <div className="relative w-48 h-24 md:w-64 md:h-32">
              <Image 
                 src="/eastern-massage-spa/logo/mainlogo.png" 
                 alt="Orchid Bloom Massage Logo" 
