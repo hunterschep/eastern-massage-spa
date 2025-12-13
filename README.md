@@ -1,6 +1,6 @@
-# Eastern Massage Spa Website
+# Orchid Bloom Wellness Website
 
-This is a modern, responsive website for Eastern Massage Spa in Issaquah, WA, built with Next.js and Tailwind CSS.
+This is a modern, responsive website for Orchid Bloom Wellness in Issaquah, WA, built with Next.js and Tailwind CSS.
 
 ## Features
 

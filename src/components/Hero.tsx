@@ -49,7 +49,7 @@ export default function Hero() {
           <div className="relative order-1 lg:order-2 h-[400px] md:h-[500px] lg:h-[600px] w-full rounded-3xl overflow-hidden shadow-2xl">
             <Image
               src="/photos/stock2.jpg"
-              alt="Relaxing Massage Atmosphere at Eastern Massage Spa"
+              alt="Relaxing massage atmosphere at Orchid Bloom Wellness"
               fill
               className="object-cover hover:scale-105 transition-transform duration-700 ease-out"
               priority

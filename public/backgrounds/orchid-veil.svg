@@ -1,0 +1,43 @@
+<svg width="1200" height="1200" viewBox="0 0 1200 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="petal" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#D8C6FF" stop-opacity="0.28"/>
+      <stop offset="60%" stop-color="#C18AE6" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#8B5FBF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="petal-warm" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#F6D9C8" stop-opacity="0.28"/>
+      <stop offset="60%" stop-color="#E7B59B" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#C59E7A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <g opacity="0.7">
+    <ellipse cx="260" cy="260" rx="220" ry="140" fill="url(#petal)"/>
+    <ellipse cx="320" cy="320" rx="180" ry="120" fill="url(#petal-warm)"/>
+    <ellipse cx="240" cy="340" rx="140" ry="100" fill="url(#petal)"/>
+  </g>
+
+  <g opacity="0.6" transform="translate(720 140) rotate(-12 120 160)">
+    <ellipse cx="120" cy="160" rx="190" ry="120" fill="url(#petal)"/>
+    <ellipse cx="190" cy="210" rx="170" ry="110" fill="url(#petal-warm)"/>
+  </g>
+
+  <g opacity="0.65" transform="translate(160 680) rotate(8 180 180)">
+    <ellipse cx="220" cy="180" rx="200" ry="120" fill="url(#petal)"/>
+    <ellipse cx="300" cy="230" rx="160" ry="110" fill="url(#petal-warm)"/>
+    <ellipse cx="200" cy="260" rx="140" ry="90" fill="url(#petal)"/>
+  </g>
+
+  <g opacity="0.6" transform="translate(700 720) rotate(-6 200 200)">
+    <ellipse cx="200" cy="200" rx="210" ry="130" fill="url(#petal)"/>
+    <ellipse cx="280" cy="240" rx="170" ry="110" fill="url(#petal-warm)"/>
+    <ellipse cx="190" cy="270" rx="140" ry="90" fill="url(#petal)"/>
+  </g>
+
+  <g opacity="0.28" fill="#FFFFFF">
+    <circle cx="160" cy="1080" r="90"/>
+    <circle cx="1040" cy="160" r="70"/>
+    <circle cx="980" cy="1040" r="110"/>
+  </g>
+</svg>

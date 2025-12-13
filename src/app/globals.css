@@ -9,7 +9,7 @@
   --secondary: #C5A065;
   --secondary-foreground: #2C3E50;
 
-  /* Accent: Eastern Red (Stamp color) */
+  /* Accent: Orchid Red */
   --accent: #9F2B2B;
   --accent-foreground: #FFFFFF;
 
@@ -45,12 +45,43 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), sans-serif;
-  /* Custom background image */
-  background-image: url('/logo/background.png');
-  background-repeat: repeat;
-  background-size: 500px; /* Adjust size to ensure pattern is visible but not overwhelming */
+  position: relative;
+  /* Base background so color persists even if overlay is not rendered */
+  background-image:
+    radial-gradient(45% 45% at 20% 20%, rgba(197, 160, 101, 0.10), transparent 60%),
+    radial-gradient(40% 40% at 80% 12%, rgba(159, 43, 43, 0.06), transparent 60%),
+    radial-gradient(50% 50% at 50% 82%, rgba(58, 77, 63, 0.06), transparent 60%),
+    url('/backgrounds/orchid-veil.svg');
+  background-repeat: no-repeat, no-repeat, no-repeat, repeat;
+  background-size: 900px 900px, 800px 800px, 1000px 1000px, 1100px 1100px;
+  background-position: center, center, center, center;
+  background-attachment: fixed;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
+}
+
+/* Orchid veil background rendered above the page so it shows behind opaque sections */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(45% 45% at 20% 20%, rgba(197, 160, 101, 0.20), transparent 60%),
+    radial-gradient(40% 40% at 80% 12%, rgba(159, 43, 43, 0.16), transparent 60%),
+    radial-gradient(50% 50% at 50% 82%, rgba(58, 77, 63, 0.16), transparent 60%),
+    url('/backgrounds/orchid-veil.svg');
+  background-repeat: no-repeat, no-repeat, no-repeat, repeat;
+  background-size: 900px 900px, 800px 800px, 1000px 1000px, 1100px 1100px;
+  background-position: center, center, center, center;
+  opacity: 0.65;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 1;
+}
+
+body > * {
+  position: relative;
+  z-index: 2;
 }

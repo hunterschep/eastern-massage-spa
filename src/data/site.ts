@@ -1,9 +1,9 @@
 export const site = {
-  name: "Eastern Massage Spa",
-  legalName: "Eastern Massage Spa",
-  url: "https://easternmassagespa.com",
+  name: "Orchid Bloom Wellness",
+  legalName: "Orchid Bloom Wellness",
+  url: "https://orchidbloomwellness.com",
   description:
-    "Eastern Massage Spa in Issaquah, WA specializes in Swedish, Deep Tissue, Cupping, Hot Stone, and Mobile massage services focused on relaxation and recovery.",
+    "Orchid Bloom Wellness in Issaquah, WA specializes in Swedish, Deep Tissue, Cupping, Hot Stone, and Mobile massage services focused on relaxation and recovery.",
   phone: "(206) 750-6868",
   phoneHref: "tel:+12067506868",
   bookingUrl: "tel:+12067506868",
