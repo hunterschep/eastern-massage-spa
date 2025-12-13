@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { site } from "@/data/site";
 
 export const dynamic = 'force-static';
 
@@ -9,6 +10,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://easternmassagespa.com/sitemap.xml',
+    sitemap: `${site.url}/sitemap.xml`,
+    host: site.url,
   };
 }

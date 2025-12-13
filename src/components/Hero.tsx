@@ -1,5 +1,6 @@
 import Image from "next/image";
-import BookNowButton from './BookNowButton';
+import BookNowButton from "./BookNowButton";
+import { site } from "@/data/site";
 
 export default function Hero() {
   return (
@@ -9,19 +10,19 @@ export default function Hero() {
           
           <div className="relative z-10 order-2 lg:order-1 text-center lg:text-left">
             <div className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-widest text-secondary uppercase border border-secondary/30 rounded-full bg-white/50 backdrop-blur-sm">
-              Issaquah's Hidden Gem
+              {site.name} • Issaquah, WA
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary mb-6 leading-tight font-serif">
-              Restore Your <br/>
-              <span className="text-secondary italic">Inner Balance</span>
+              Massage Therapy for <br />
+              <span className="text-secondary italic">Relaxation &amp; Recovery</span>
             </h1>
             <p className="text-lg md:text-xl text-muted mb-10 max-w-lg mx-auto lg:mx-0 font-light leading-relaxed">
-              Experience authentic Eastern massage techniques blended with modern therapy in a serene, tranquil environment.
+              Swedish, Deep Tissue, Cupping, Hot Stone, and mobile massage that melts stress, eases pain, and restores balance for Issaquah and the Eastside.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <BookNowButton className="bg-accent text-accent-foreground px-8 py-4 rounded-full text-lg font-medium hover:bg-accent/90 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200">
-                Book Appointment
+                Call to Book
               </BookNowButton>
               <a 
                 href="#services"
@@ -31,15 +32,17 @@ export default function Hero() {
               </a>
             </div>
             
-            <div className="mt-12 flex items-center justify-center lg:justify-start gap-4 text-sm font-medium text-muted">
-                <div className="flex -space-x-2 overflow-hidden">
-                    {/* Fake avatars or just icons could go here, let's stick to the rating */}
-                    <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center text-secondary font-bold">G</div>
+            <div className="mt-12 flex flex-col gap-3 text-sm font-medium text-muted items-center lg:items-start">
+                <div className="flex items-center gap-3">
+                  <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-secondary/20 text-secondary font-bold">
+                    WA
+                  </span>
+                  <div className="text-left">
+                    <p className="text-base text-primary font-semibold">{site.phone}</p>
+                    <p>Open daily 10:00 AM – 9:30 PM</p>
+                  </div>
                 </div>
-                <div>
-                    <div className="flex text-secondary text-lg">★★★★★</div>
-                    <p>4.4 Stars on Google Reviews</p>
-                </div>
+                <p className="text-center lg:text-left">Walk-ins welcome when available. Call ahead to secure your time.</p>
             </div>
           </div>
 

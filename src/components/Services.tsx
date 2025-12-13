@@ -1,45 +1,7 @@
 import Image from "next/image";
+import { site } from "@/data/site";
 
 export default function Services() {
-  const services = [
-    {
-      category: "Swedish Massage",
-      description: "Gentle, relaxing strokes to improve circulation and relieve tension.",
-      items: [
-        { name: "60 minutes", price: "$85" },
-        { name: "90 minutes", price: "$120" },
-        { name: "120 minutes", price: "$160" },
-      ]
-    },
-    {
-      category: "Deep Tissue Massage",
-      description: "Targeted pressure to release chronic muscle knots and tightness.",
-      items: [
-        { name: "60 minutes", price: "$95" },
-        { name: "90 minutes", price: "$130" },
-        { name: "120 minutes", price: "$180" },
-      ]
-    },
-    {
-      category: "Mobile Massage",
-      description: "Professional massage therapy in the comfort of your home.",
-      subtitle: "(Established Clients Only)",
-      items: [
-        { name: "60 minutes", price: "$120" },
-        { name: "90 minutes", price: "$170" },
-        { name: "120 minutes", price: "$230" },
-      ]
-    },
-  ];
-
-  const addons = [
-    { name: "Aromatherapy", price: "$10" },
-    { name: "Cupping", price: "$20" },
-    { name: "Hot Stones", price: "$10" },
-    { name: "Prenatal", price: "$10" },
-    { name: "Customized Massage", price: "Included" },
-  ];
-
   return (
     <section id="services" className="py-24 bg-background relative overflow-hidden">
       {/* Background texture/image */}
@@ -49,13 +11,13 @@ export default function Services() {
         <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 font-serif">Our Treatment Menu</h2>
             <p className="text-muted max-w-2xl mx-auto text-lg font-light">
-                Discover a sanctuary of calm with our curated selection of therapeutic massages.
+                Discover a sanctuary of calm with our curated selection of therapeutic massages tailored to Issaquah clients seeking relaxation and relief.
             </p>
         </div>
         
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 mb-24 items-start">
            <div className="space-y-8">
-              {services.map((service, idx) => (
+              {site.services.map((service, idx) => (
                 <div key={idx} className="bg-surface p-8 md:p-10 rounded-2xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow duration-300">
                   <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
                       <h3 className="text-2xl font-serif font-semibold text-primary">{service.category}</h3>
@@ -91,7 +53,7 @@ export default function Services() {
                     <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/20 rounded-full -mr-10 -mt-10 blur-2xl"></div>
                     <h3 className="text-2xl font-serif font-semibold mb-8 text-center relative z-10">Enhance Your Session</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 relative z-10">
-                        {addons.map((addon, idx) => (
+                        {site.addons.map((addon, idx) => (
                             <div key={idx} className="flex justify-between items-center p-3 bg-white/10 rounded-lg border border-white/10 hover:bg-white/20 transition-colors">
                                 <span className="font-medium">{addon.name}</span>
                                 <span className="text-secondary font-bold">{addon.price}</span>

@@ -1,6 +1,12 @@
 import Image from "next/image";
+import { site } from "@/data/site";
 
 export default function Location() {
+  const mapQuery = encodeURIComponent(
+    `${site.address.streetAddress} ${site.address.addressLocality}, ${site.address.addressRegion} ${site.address.postalCode}`
+  );
+  const mapEmbedUrl = `https://maps.google.com/maps?q=${mapQuery}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+
   return (
     <section id="location" className="py-24 bg-surface-alt">
       <div className="container mx-auto px-4">
@@ -19,12 +25,12 @@ export default function Location() {
                     <h3 className="font-serif font-semibold text-primary mb-3 text-lg flex items-center gap-2">
                         📍 Address
                     </h3>
-                    <p className="text-muted mb-4 leading-relaxed">
-                    160 NW Gilman Blvd Ste 216<br />
-                    Issaquah, WA 98027
-                    </p>
+                    <address className="not-italic text-muted mb-4 leading-relaxed">
+                    {site.address.streetAddress}<br />
+                    {site.address.addressLocality}, {site.address.addressRegion} {site.address.postalCode}
+                    </address>
                     <a 
-                        href="https://www.google.com/maps/dir//160+NW+Gilman+Blvd+Ste+216,+Issaquah,+WA+98027" 
+                        href={site.mapUrl}
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="text-sm font-semibold text-secondary underline underline-offset-4 hover:text-primary transition-colors"
@@ -40,8 +46,8 @@ export default function Location() {
                     <p className="text-muted mb-4">
                         Questions or ready to book? Give us a call.
                     </p>
-                    <a href="tel:+12067506868" className="text-xl font-bold text-secondary hover:text-primary transition-colors">
-                    (206) 750-6868
+                    <a href={site.phoneHref} className="text-xl font-bold text-secondary hover:text-primary transition-colors">
+                    {site.phone}
                     </a>
                 </div>
             </div>
@@ -52,13 +58,15 @@ export default function Location() {
                     width="100%" 
                     height="100%" 
                     id="gmap_canvas" 
-                    src="https://maps.google.com/maps?q=160+NW+Gilman+Blvd+Ste+216,+Issaquah,+WA+98027&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                    src={mapEmbedUrl}
                     frameBorder="0" 
                     scrolling="no" 
                     marginHeight={0} 
                     marginWidth={0}
-                    title="Google Map of Orchid Bloom Massage Location"
+                    title="Google Map of Eastern Massage Spa Location"
                     className="absolute inset-0"
+                    loading="lazy"
+                    referrerPolicy="strict-origin-when-cross-origin"
                 >
                 </iframe>
             </div>
@@ -80,13 +88,9 @@ export default function Location() {
              <div className="bg-primary text-primary-foreground p-8 md:p-10 rounded-2xl shadow-lg border border-primary/50">
                 <h3 className="text-2xl font-serif font-bold mb-8 text-center">Business Hours</h3>
                 <ul className="space-y-4">
-                    {[
-                        { day: "Mon - Fri", hours: "10:00 AM – 9:30 PM" },
-                        { day: "Saturday", hours: "10:00 AM – 9:30 PM" },
-                        { day: "Sunday", hours: "10:00 AM – 9:30 PM" },
-                    ].map((item, idx) => (
+                    {site.hours.map((item, idx) => (
                         <li key={idx} className="flex justify-between items-center text-primary-foreground/80 border-b border-primary-foreground/20 pb-4 last:border-0 last:pb-0">
-                            <span className="font-medium">{item.day}</span>
+                            <span className="font-medium">{item.label}</span>
                             <span className="text-right font-bold text-secondary">{item.hours}</span>
                         </li>
                     ))}

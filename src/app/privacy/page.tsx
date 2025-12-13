@@ -1,4 +1,11 @@
-import Link from 'next/link';
+import type { Metadata } from "next";
+import Link from "next/link";
+import { site } from "@/data/site";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description: `${site.name} privacy policy detailing how we handle client information for massage services in Issaquah, WA.`,
+};
 
 export default function PrivacyPolicy() {
   return (
@@ -13,7 +20,7 @@ export default function PrivacyPolicy() {
 
       <div className="prose prose-stone max-w-none">
         <p>
-          At Eastern Massage Spa, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or use our services.
+          At {site.name}, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or use our services.
         </p>
 
         <h2 className="text-2xl font-serif font-semibold text-primary mt-8 mb-4">1. Information We Collect</h2>
@@ -44,7 +51,7 @@ export default function PrivacyPolicy() {
 
         <h2 className="text-2xl font-serif font-semibold text-primary mt-8 mb-4">3. Information Sharing</h2>
         <p>
-          We do not sell, trade, or otherwise transfer your personally identifiable information to outside parties. We may release your information when we believe release is appropriate to comply with the law, enforce our site policies, or protect ours or others' rights, property, or safety.
+          We do not sell, trade, or otherwise transfer your personally identifiable information to outside parties. We may release your information when we believe release is appropriate to comply with the law, enforce our site policies, or protect ours or others&apos; rights, property, or safety.
         </p>
 
         <h2 className="text-2xl font-serif font-semibold text-primary mt-8 mb-4">4. Data Security</h2>
@@ -67,13 +74,12 @@ export default function PrivacyPolicy() {
           If you have any questions regarding this Privacy Policy, you may contact us at:
         </p>
         <p className="mt-4 font-medium text-primary">
-          Eastern Massage Spa<br/>
-          160 NW Gilman Blvd Ste 216<br/>
-          Issaquah, WA 98027<br/>
-          (206) 750-6868
+          {site.name}<br/>
+          {site.address.streetAddress}<br/>
+          {site.address.addressLocality}, {site.address.addressRegion} {site.address.postalCode}<br/>
+          {site.phone}
         </p>
       </div>
     </div>
   );
 }
-

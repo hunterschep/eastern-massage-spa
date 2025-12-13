@@ -1,4 +1,11 @@
-import Link from 'next/link';
+import type { Metadata } from "next";
+import Link from "next/link";
+import { site } from "@/data/site";
+
+export const metadata: Metadata = {
+  title: "Terms of Service",
+  description: `${site.name} terms of service outlining policies for massage therapy appointments and conduct.`,
+};
 
 export default function TermsOfService() {
   return (
@@ -13,7 +20,7 @@ export default function TermsOfService() {
 
       <div className="prose prose-stone max-w-none">
         <p>
-          Welcome to Eastern Massage Spa. By accessing our website or using our services, you agree to comply with and be bound by the following terms and conditions.
+          Welcome to {site.name}. By accessing our website or using our services, you agree to comply with and be bound by the following terms and conditions.
         </p>
 
         <h2 className="text-2xl font-serif font-semibold text-primary mt-8 mb-4">1. Appointments and Cancellations</h2>
@@ -38,7 +45,7 @@ export default function TermsOfService() {
 
         <h2 className="text-2xl font-serif font-semibold text-primary mt-8 mb-4">5. Limitation of Liability</h2>
         <p>
-          Eastern Massage Spa and its therapists shall not be liable for any direct, indirect, incidental, or consequential damages resulting from the use of our services or website.
+          {site.name} and its therapists shall not be liable for any direct, indirect, incidental, or consequential damages resulting from the use of our services or website.
         </p>
 
         <h2 className="text-2xl font-serif font-semibold text-primary mt-8 mb-4">6. Changes to Terms</h2>
@@ -54,4 +61,3 @@ export default function TermsOfService() {
     </div>
   );
 }
-
