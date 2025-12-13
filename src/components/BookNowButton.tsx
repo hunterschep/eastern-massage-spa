@@ -6,9 +6,9 @@ interface BookNowButtonProps {
 }
 
 export default function BookNowButton({ className, children = "Book Now" }: BookNowButtonProps) {
-  return (
+  return ( //TODO: Add the correct link
     <a 
-      href="https://easternmassagespa.setmore.com"
+      href=""
       target="_blank"
       rel="noopener noreferrer"
       className={className}
