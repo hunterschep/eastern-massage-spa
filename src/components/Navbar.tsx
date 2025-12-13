@@ -9,7 +9,7 @@ export default function Navbar() {
         <Link href="/" className="flex items-center">
           <div className="relative w-48 h-24 md:w-64 md:h-32">
              <Image 
-                src="/eastern-massage-spa/logo/mainlogo.png" 
+                src="/logo/mainlogo.png" 
                 alt="Orchid Bloom Massage Logo" 
                 fill
                 className="object-contain object-left"

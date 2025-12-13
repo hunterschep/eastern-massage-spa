@@ -68,7 +68,7 @@ export default function Location() {
           <div className="order-1 lg:order-2 space-y-8">
              <div className="relative h-64 md:h-80 w-full rounded-2xl overflow-hidden shadow-lg">
                 <Image 
-                    src="/eastern-massage-spa/photos/stock3.jpg"
+                    src="/photos/stock3.jpg"
                     alt="Spa Interior"
                     fill
                     className="object-cover"
