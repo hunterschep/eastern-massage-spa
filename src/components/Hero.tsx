@@ -20,13 +20,20 @@ export default function Hero() {
               Swedish, Deep Tissue, Cupping, Hot Stone, and mobile massage that melts stress, eases pain, and restores balance for Issaquah and the Eastside.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <BookNowButton className="bg-accent text-accent-foreground px-8 py-4 rounded-full text-lg font-medium hover:bg-accent/90 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200">
-                Call to Book
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 justify-center lg:justify-start">
+              <BookNowButton className="bg-accent text-accent-foreground px-8 py-4 rounded-full text-lg font-semibold hover:bg-accent/90 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200">
+                Book on Fresha
               </BookNowButton>
+              <a
+                href={site.phoneHref}
+                className="bg-white text-primary border border-primary/20 px-8 py-4 rounded-full text-lg font-semibold hover:bg-surface-alt transition-colors shadow-sm hover:shadow-md flex items-center justify-center gap-2"
+              >
+                <span className="text-secondary">Call</span>
+                <span>{site.phone}</span>
+              </a>
               <a 
                 href="#services"
-                className="bg-white text-primary border border-primary/20 px-8 py-4 rounded-full text-lg font-medium hover:bg-surface-alt transition-colors shadow-sm hover:shadow-md flex items-center justify-center"
+                className="bg-surface text-primary border border-primary/10 px-8 py-4 rounded-full text-lg font-medium hover:bg-white transition-colors shadow-sm hover:shadow-md flex items-center justify-center"
               >
                 View Services
               </a>
@@ -49,7 +56,7 @@ export default function Hero() {
           <div className="relative order-1 lg:order-2 h-[400px] md:h-[500px] lg:h-[600px] w-full rounded-3xl overflow-hidden shadow-2xl">
             <Image
               src="/photos/stock2.jpg"
-              alt="Relaxing massage atmosphere at Orchid Bloom Wellness"
+              alt="Relaxing massage atmosphere at Eastern Massage Spa"
               fill
               className="object-cover hover:scale-105 transition-transform duration-700 ease-out"
               priority

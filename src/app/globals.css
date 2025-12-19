@@ -9,7 +9,7 @@
   --secondary: #C5A065;
   --secondary-foreground: #2C3E50;
 
-  /* Accent: Orchid Red */
+  /* Accent: Deep Garnet */
   --accent: #9F2B2B;
   --accent-foreground: #FFFFFF;
 
@@ -62,7 +62,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
 }
 
-/* Orchid veil background rendered above the page so it shows behind opaque sections */
+/* Subtle floral veil background rendered above the page so it shows behind opaque sections */
 body::before {
   content: "";
   position: fixed;

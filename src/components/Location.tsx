@@ -63,7 +63,7 @@ export default function Location() {
                     scrolling="no" 
                     marginHeight={0} 
                     marginWidth={0}
-                    title="Google Map of Orchid Bloom Wellness Location"
+                    title="Google Map of Eastern Massage Spa location"
                     className="absolute inset-0"
                     loading="lazy"
                     referrerPolicy="strict-origin-when-cross-origin"

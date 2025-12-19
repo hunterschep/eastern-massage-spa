@@ -28,6 +28,7 @@ export default function PrivacyPolicy() {
           We collect information that you voluntarily provide to us when you:
         </p>
         <ul className="list-disc pl-6 space-y-2 text-muted">
+          <li>Book an appointment online through our Fresha scheduling page.</li>
           <li>Contact us via phone or email to book an appointment.</li>
           <li>Visit our spa in person.</li>
         </ul>
@@ -61,7 +62,7 @@ export default function PrivacyPolicy() {
 
         <h2 className="text-2xl font-serif font-semibold text-primary mt-8 mb-4">5. Third-Party Links</h2>
         <p>
-          Our website may contain links to third-party websites (e.g., Google Maps). These third-party sites have separate and independent privacy policies. We therefore have no responsibility or liability for the content and activities of these linked sites.
+          Our website may contain links to third-party websites (e.g., Google Maps or Fresha for online booking). These third-party sites have separate and independent privacy policies. We therefore have no responsibility or liability for the content and activities of these linked sites.
         </p>
 
         <h2 className="text-2xl font-serif font-semibold text-primary mt-8 mb-4">6. Changes to This Policy</h2>

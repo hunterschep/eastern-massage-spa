@@ -25,7 +25,7 @@ export default function TermsOfService() {
 
         <h2 className="text-2xl font-serif font-semibold text-primary mt-8 mb-4">1. Appointments and Cancellations</h2>
         <p>
-          Appointments can be made by calling us directly. We appreciate prompt arrival for your scheduled appointment. If you need to cancel or reschedule, please contact us at least 24 hours in advance. Late cancellations or no-shows may be subject to a fee.
+          Appointments can be made through our Fresha booking link or by calling us directly. We appreciate prompt arrival for your scheduled appointment. If you need to cancel or reschedule, please contact us at least 24 hours in advance. Late cancellations or no-shows may be subject to a fee.
         </p>
 
         <h2 className="text-2xl font-serif font-semibold text-primary mt-8 mb-4">2. Health Conditions</h2>
