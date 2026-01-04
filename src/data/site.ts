@@ -62,7 +62,17 @@ export const site = {
         "Targeted pressure to release chronic muscle knots and tightness.",
       items: [
         { name: "60 minutes", price: "$95" },
-        { name: "90 minutes", price: "$130" },
+        { name: "90 minutes", price: "$135" },
+        { name: "120 minutes", price: "$180" },
+      ],
+    },
+    {
+      category: "Prenatal Massage",
+      description:
+        "Comfort-focused care to ease pregnancy-related tension and promote relaxation.",
+      items: [
+        { name: "60 minutes", price: "$95" },
+        { name: "90 minutes", price: "$135" },
         { name: "120 minutes", price: "$180" },
       ],
     },
@@ -82,7 +92,7 @@ export const site = {
     { name: "Aromatherapy", price: "$10" },
     { name: "Cupping", price: "$20" },
     { name: "Hot Stones", price: "$10" },
-    { name: "Prenatal", price: "$10" },
+    { name: "CBD Oil Enhancement", price: "$20" },
     { name: "Customized Massage", price: "Included" },
   ],
   faqs: [
