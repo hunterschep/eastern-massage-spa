@@ -20,7 +20,7 @@
 
   /* Text */
   --foreground: #2C3531; /* Soft Black */
-  --muted: #6B7280;
+  --muted: #4B5563;
 }
 
 @theme inline {
@@ -84,4 +84,57 @@ body::before {
 body > * {
   position: relative;
   z-index: 2;
+}
+
+.legal-page {
+  min-height: 100vh;
+  padding: 6rem 1rem;
+}
+
+.legal-card {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(58, 77, 63, 0.12);
+  border-radius: 1.5rem;
+  box-shadow: 0 24px 80px rgba(44, 53, 49, 0.10);
+  backdrop-filter: blur(6px);
+}
+
+.legal-prose {
+  color: var(--foreground);
+  line-height: 1.85;
+}
+
+.legal-prose h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.legal-prose p + p,
+.legal-prose ul + p,
+.legal-prose p + ul,
+.legal-prose section + section {
+  margin-top: 1rem;
+}
+
+.legal-prose ul {
+  margin-top: 0.75rem;
+  padding-left: 1.25rem;
+  color: var(--foreground);
+  list-style: disc;
+}
+
+.legal-prose li + li {
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .legal-card {
+    padding: 3rem;
+  }
 }

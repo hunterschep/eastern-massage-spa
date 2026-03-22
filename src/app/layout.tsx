@@ -33,8 +33,9 @@ export const metadata: Metadata = {
     site.name,
     "Deep Tissue Massage Issaquah",
     "Swedish Massage Issaquah",
-    "Mobile Massage Issaquah",
-    "Hot Stone Massage",
+    "Licensed Massage Therapists Issaquah",
+    "Prenatal Massage Issaquah",
+    "Hot Stone Massage Issaquah",
     "Cupping Therapy",
     "Spa Issaquah",
   ],
@@ -54,7 +55,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: `${site.name} | Issaquah, WA`,
+    title: `${site.name} | Massage Therapy in Issaquah, WA`,
     description: site.description,
     url: site.url,
     siteName: site.name,
@@ -71,7 +72,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} | Issaquah, WA`,
+    title: `${site.name} | Massage Therapy in Issaquah, WA`,
     description: site.description,
     images: ["/photos/stock2.jpg"],
   },
@@ -146,11 +147,23 @@ export default function RootLayout({
   const structuredData = [
     {
       "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": `${site.url}/#website`,
+      url: site.url,
+      name: site.name,
+      description: site.description,
+    },
+    {
+      "@context": "https://schema.org",
       "@type": "HealthAndBeautyBusiness",
+      "@id": `${site.url}/#business`,
       name: site.name,
       legalName: site.legalName,
       url: site.url,
+      mainEntityOfPage: site.url,
+      description: site.description,
       image: [`${site.url}/photos/stock2.jpg`],
+      logo: `${site.url}/logo/mainlogo.png`,
       telephone,
       priceRange: site.priceRange,
       address: {

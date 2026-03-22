@@ -6,7 +6,7 @@ import { site } from "@/data/site";
 export default function Navbar() {
   return (
     <nav
-      className="sticky top-0 z-50 bg-surface/90 backdrop-blur-md shadow-sm border-b border-stone-100"
+      className="sticky top-0 z-50 bg-surface/95 backdrop-blur-md shadow-sm border-b border-primary/10"
       aria-label="Primary"
     >
       <div className="container mx-auto px-4 py-2 flex justify-between items-center">

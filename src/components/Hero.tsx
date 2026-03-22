@@ -10,14 +10,14 @@ export default function Hero() {
           
           <div className="relative z-10 order-2 lg:order-1 text-center lg:text-left">
             <div className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-widest text-secondary uppercase border border-secondary/30 rounded-full bg-white/50 backdrop-blur-sm">
-              {site.name} • Issaquah, WA
+              Licensed Massage Therapists • Issaquah, WA
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary mb-6 leading-tight font-serif">
-              Massage Therapy for <br />
-              <span className="text-secondary italic">Relaxation &amp; Recovery</span>
+              Massage Therapy in <br />
+              <span className="text-secondary italic">Issaquah, Washington</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted mb-10 max-w-lg mx-auto lg:mx-0 font-light leading-relaxed">
-              Swedish, Deep Tissue, Cupping, Hot Stone, and mobile massage that melts stress, eases pain, and restores balance for Issaquah and the Eastside.
+            <p className="text-lg md:text-xl text-muted mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+              Swedish massage, Deep Tissue massage, and targeted enhancements in a clean, professional setting near downtown Issaquah.
             </p>
             
             <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 justify-center lg:justify-start">
@@ -39,7 +39,7 @@ export default function Hero() {
               </a>
             </div>
             
-            <div className="mt-12 flex flex-col gap-3 text-sm font-medium text-muted items-center lg:items-start">
+            <div className="mt-10 flex flex-col gap-3 text-sm font-medium text-muted items-center lg:items-start">
                 <div className="flex items-center gap-3">
                   <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-secondary/20 text-secondary font-bold">
                     WA
@@ -49,7 +49,7 @@ export default function Hero() {
                     <p>Open daily 10:00 AM – 9:30 PM</p>
                   </div>
                 </div>
-                <p className="text-center lg:text-left">Walk-ins welcome when available. Call ahead to secure your time.</p>
+                <p className="text-center lg:text-left">Call ahead or book online to reserve your preferred time.</p>
             </div>
           </div>
 

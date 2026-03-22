@@ -1,9 +1,21 @@
+type ServiceItem = {
+  name: string;
+  price: string;
+};
+
+type Service = {
+  category: string;
+  description: string;
+  subtitle?: string;
+  items: ServiceItem[];
+};
+
 export const site = {
   name: "Eastern Massage Spa",
   legalName: "Eastern Massage Spa",
   url: "https://easternmassagespa.me",
   description:
-    "Eastern Massage Spa in Issaquah, WA offers Swedish, Deep Tissue, Cupping, Hot Stone, and Mobile massage for relaxation, recovery, and stress relief. Book instantly on Fresha.",
+    "Massage therapy in Issaquah, WA with licensed massage therapists offering Swedish massage, Deep Tissue massage, and custom enhancements including cupping, hot stones, prenatal upgrade, and CBD oil.",
   phone: "(206) 750-6868",
   phoneHref: "tel:+12067506868",
   bookingUrl:
@@ -49,51 +61,30 @@ export const site = {
     {
       category: "Swedish Massage",
       description:
-        "Gentle, relaxing strokes to improve circulation and relieve tension.",
+        "Gentle to medium pressure designed to promote relaxation, improve circulation, and relieve general tension.",
       items: [
-        { name: "60 minutes", price: "$85" },
-        { name: "90 minutes", price: "$120" },
-        { name: "120 minutes", price: "$160" },
+        { name: "60 minutes", price: "$90" },
+        { name: "90 minutes", price: "$130" },
+        { name: "120 minutes", price: "$170" },
       ],
     },
     {
       category: "Deep Tissue Massage",
       description:
-        "Targeted pressure to release chronic muscle knots and tightness.",
+        "Targeted, firm pressure focused on relieving chronic muscle tension, stiffness, and deeper muscle layers. Recommended for clients with significant tension or physically demanding lifestyles.",
       items: [
-        { name: "60 minutes", price: "$95" },
-        { name: "90 minutes", price: "$135" },
-        { name: "120 minutes", price: "$180" },
+        { name: "60 minutes", price: "$105" },
+        { name: "90 minutes", price: "$150" },
+        { name: "120 minutes", price: "$200" },
       ],
     },
-    {
-      category: "Prenatal Massage",
-      description:
-        "Comfort-focused care to ease pregnancy-related tension and promote relaxation.",
-      items: [
-        { name: "60 minutes", price: "$95" },
-        { name: "90 minutes", price: "$135" },
-        { name: "120 minutes", price: "$180" },
-      ],
-    },
-    {
-      category: "Mobile Massage",
-      description:
-        "Professional massage therapy in the comfort of your home.",
-      subtitle: "(Established Clients Only)",
-      items: [
-        { name: "60 minutes", price: "$120" },
-        { name: "90 minutes", price: "$170" },
-        { name: "120 minutes", price: "$230" },
-      ],
-    },
-  ],
+  ] as Service[],
   addons: [
-    { name: "Aromatherapy", price: "$10" },
-    { name: "Cupping", price: "$20" },
-    { name: "Hot Stones", price: "$10" },
-    { name: "CBD Oil Enhancement", price: "$20" },
-    { name: "Customized Massage", price: "Included" },
+    { name: "Aromatherapy", price: "$15" },
+    { name: "Hot Stones", price: "$15" },
+    { name: "Prenatal Upgrade", price: "$10" },
+    { name: "Cupping Therapy", price: "$25" },
+    { name: "CBD Oil Enhancement", price: "$25" },
   ],
   faqs: [
     {
@@ -107,9 +98,19 @@ export const site = {
         "Arrive a few minutes early to discuss your needs with your therapist. We tailor pressure and techniques to your comfort level.",
     },
     {
-      question: "Do you offer mobile massage?",
+      question: "Can I add enhancements to my massage?",
       answer:
-        "Yes, mobile massage is available for established clients within the Issaquah area. Please call to schedule.",
+        "Yes. Aromatherapy, hot stones, prenatal upgrade, cupping therapy, and CBD oil enhancement are available with any massage service.",
+    },
+    {
+      question: "Where is Eastern Massage Spa located?",
+      answer:
+        "We are located at 160 NW Gilman Blvd Ste 216 in Issaquah, Washington, with convenient access for clients visiting from Issaquah and nearby Eastside communities.",
+    },
+    {
+      question: "What type of massage should I book?",
+      answer:
+        "Swedish massage is ideal for relaxation, circulation, and general tension relief. Deep Tissue massage is best for clients who want firmer pressure focused on chronic tightness, stiffness, and deeper muscle tension.",
     },
   ],
 };

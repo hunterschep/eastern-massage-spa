@@ -14,16 +14,13 @@ export default function Location() {
             {/* Contact & Map Column */}
           <div className="space-y-12 order-2 lg:order-1">
             <div>
-                <h2 className="text-4xl font-serif font-bold mb-6 text-primary">Visit Our Sanctuary</h2>
-                <p className="text-muted text-lg leading-relaxed font-light">
-                    Conveniently located in the heart of Issaquah. Escape the busy world and step into tranquility.
-                </p>
+                <h2 className="text-4xl font-serif font-bold mb-6 text-primary">Location and Business Hours</h2>
             </div>
             
             <div className="grid sm:grid-cols-2 gap-6">
-                <div className="bg-surface p-6 rounded-xl border border-stone-100 shadow-sm">
-                    <h3 className="font-serif font-semibold text-primary mb-3 text-lg flex items-center gap-2">
-                        📍 Address
+                <div className="bg-surface p-6 rounded-xl border border-primary/10 shadow-sm">
+                    <h3 className="font-serif font-semibold text-primary mb-3 text-lg">
+                        Address
                     </h3>
                     <address className="not-italic text-muted mb-4 leading-relaxed">
                     {site.address.streetAddress}<br />
@@ -39,9 +36,9 @@ export default function Location() {
                     </a>
                 </div>
                 
-                <div className="bg-surface p-6 rounded-xl border border-stone-100 shadow-sm">
-                    <h3 className="font-serif font-semibold text-primary mb-3 text-lg flex items-center gap-2">
-                        📞 Phone
+                <div className="bg-surface p-6 rounded-xl border border-primary/10 shadow-sm">
+                    <h3 className="font-serif font-semibold text-primary mb-3 text-lg">
+                        Phone
                     </h3>
                     <p className="text-muted mb-4">
                         Questions or ready to book? Give us a call.
@@ -53,7 +50,7 @@ export default function Location() {
             </div>
 
             {/* Map Embed */}
-            <div className="w-full h-80 bg-stone-200 rounded-2xl overflow-hidden border border-stone-200 shadow-md relative">
+            <div className="w-full h-80 bg-stone-200 rounded-2xl overflow-hidden border border-primary/10 shadow-md relative">
                 <iframe 
                     width="100%" 
                     height="100%" 
@@ -77,7 +74,7 @@ export default function Location() {
              <div className="relative h-64 md:h-80 w-full rounded-2xl overflow-hidden shadow-lg">
                 <Image 
                     src="/photos/stock3.jpg"
-                    alt="Spa Interior"
+                    alt="Treatment room at Eastern Massage Spa"
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -95,8 +92,8 @@ export default function Location() {
                         </li>
                     ))}
                 </ul>
-                <div className="mt-8 text-center text-sm text-primary-foreground/60 italic">
-                    *Hours might differ on holidays
+                <div className="mt-8 text-center text-sm text-primary-foreground/70">
+                    Holiday hours may vary.
                 </div>
              </div>
           </div>
