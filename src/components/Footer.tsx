@@ -19,7 +19,7 @@ export default function Footer() {
             {site.address.addressRegion} {site.address.postalCode}
           </p>
           <p className="text-primary-foreground/65 mt-1">
-            {site.phone} · Open daily 10:00 AM – 9:30 PM
+            {site.phone} · Open daily 10:30 AM – 8:30 PM
           </p>
           <p className="text-primary-foreground/55 mt-3">
             &copy; {new Date().getFullYear()} {site.legalName}. All rights

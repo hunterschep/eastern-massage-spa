@@ -39,7 +39,7 @@ export default function Navbar() {
             <span className="tracking-tight">{site.phone}</span>
           </a>
           <BookNowButton className="bg-accent text-accent-foreground px-4 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-center hover:bg-accent/90 transition-colors shadow-md focus-visible:outline focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent">
-            Book on Fresha
+            Book Online
           </BookNowButton>
         </div>
       </div>

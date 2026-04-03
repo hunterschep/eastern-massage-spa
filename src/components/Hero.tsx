@@ -22,7 +22,7 @@ export default function Hero() {
             
             <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 justify-center lg:justify-start">
               <BookNowButton className="bg-accent text-accent-foreground px-8 py-4 rounded-full text-lg font-semibold hover:bg-accent/90 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200">
-                Book on Fresha
+                Book Online
               </BookNowButton>
               <a
                 href={site.phoneHref}
@@ -46,7 +46,7 @@ export default function Hero() {
                   </span>
                   <div className="text-left">
                     <p className="text-base text-primary font-semibold">{site.phone}</p>
-                    <p>Open daily 10:00 AM – 9:30 PM</p>
+                    <p>Open daily 10:30 AM – 8:30 PM</p>
                   </div>
                 </div>
                 <p className="text-center lg:text-left">Call ahead or book online to reserve your preferred time.</p>

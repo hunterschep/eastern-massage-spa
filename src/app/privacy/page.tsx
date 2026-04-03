@@ -78,7 +78,7 @@ export default function PrivacyPolicy() {
             <p>We collect information directly from you when you:</p>
             <ul>
               <li>Call or text us.</li>
-              <li>Book through our Fresha booking page.</li>
+              <li>Book through our online booking page.</li>
               <li>Submit information during intake or before a session.</li>
               <li>Speak with us in person at our location.</li>
               <li>Use our website and linked booking tools.</li>
@@ -86,7 +86,7 @@ export default function PrivacyPolicy() {
             <p>
               We may also receive booking, scheduling, payment-status, and
               messaging information from third-party service providers that help
-              us operate the business, such as Fresha, payment processors,
+              us operate the business, such as Square, payment processors,
               website hosting providers, or mapping providers.
             </p>
           </section>
@@ -210,7 +210,7 @@ export default function PrivacyPolicy() {
           <section>
             <h2>9. Third-Party Services and External Sites</h2>
             <p>
-              Our website links to third-party services, including Fresha and
+              Our website links to third-party services, including Square and
               Google Maps. Those third parties operate under their own terms and
               privacy policies, and we are not responsible for their separate
               privacy practices. You should review their policies before

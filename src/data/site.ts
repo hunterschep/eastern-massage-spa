@@ -18,8 +18,7 @@ export const site = {
     "Massage therapy in Issaquah, WA with licensed massage therapists offering Swedish massage, Deep Tissue massage, and custom enhancements including cupping, hot stones, prenatal upgrade, and CBD oil.",
   phone: "(206) 750-6868",
   phoneHref: "tel:+12067506868",
-  bookingUrl:
-    "https://www.fresha.com/a/eastern-massage-spa-issaquah-160-northwest-gilman-boulevard-ebx624o5",
+  bookingUrl: "https://issaquah-location.square.site/",
   mapUrl:
     "https://www.google.com/maps/dir//160+NW+Gilman+Blvd+Ste+216,+Issaquah,+WA+98027",
   address: {
@@ -37,23 +36,23 @@ export const site = {
   hours: [
     {
       label: "Mon - Fri",
-      hours: "10:00 AM – 9:30 PM",
-      opens: "10:00",
-      closes: "21:30",
+      hours: "10:30 AM – 8:30 PM",
+      opens: "10:30",
+      closes: "20:30",
       days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
     },
     {
       label: "Saturday",
-      hours: "10:00 AM – 9:30 PM",
-      opens: "10:00",
-      closes: "21:30",
+      hours: "10:30 AM – 8:30 PM",
+      opens: "10:30",
+      closes: "20:30",
       days: ["Saturday"],
     },
     {
       label: "Sunday",
-      hours: "10:00 AM – 9:30 PM",
-      opens: "10:00",
-      closes: "21:30",
+      hours: "10:30 AM – 8:30 PM",
+      opens: "10:30",
+      closes: "20:30",
       days: ["Sunday"],
     },
   ],

@@ -1,6 +1,6 @@
 # Eastern Massage Spa Website
 
-This is a modern, responsive website for Eastern Massage Spa in Issaquah, WA, built with Next.js and Tailwind CSS. The production domain is https://easternmassagespa.me. The site supports online booking via Fresha and highlights a visible call-to-book option.
+This is a modern, responsive website for Eastern Massage Spa in Issaquah, WA, built with Next.js and Tailwind CSS. The production domain is https://easternmassagespa.me. The site supports online booking via Square and highlights a visible call-to-book option.
 
 ## Features
 
@@ -8,7 +8,7 @@ This is a modern, responsive website for Eastern Massage Spa in Issaquah, WA, bu
 - **Fast Performance**: Built with Next.js App Router.
 - **Clean UI**: Modern, spa-like aesthetic using Tailwind CSS.
 - **Information Architecture**: Clear sections for Services, Pricing, Location, and Hours.
-- **Booking Ready**: Primary CTA links directly to the Fresha scheduling page.
+- **Booking Ready**: Primary CTA links directly to the Square scheduling page.
 
 ## Getting Started
 
@@ -25,7 +25,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - `src/app/page.tsx`: The main landing page assembling all sections.
 - `src/components/`: Reusable UI components.
   - `Navbar.tsx`: Sticky navigation bar with quick call and booking buttons.
-  - `Hero.tsx`: Welcome banner with primary Fresha booking CTA.
+  - `Hero.tsx`: Welcome banner with primary booking CTA.
   - `Services.tsx`: Pricing list and services menu.
   - `Location.tsx`: Address, hours, and contact info.
   - `Footer.tsx`: Site footer.
