@@ -3,6 +3,9 @@ import BookNowButton from "./BookNowButton";
 import { site } from "@/data/site";
 
 export default function Hero() {
+  const actionClass =
+    "inline-flex min-h-14 min-w-[220px] items-center justify-center rounded-full px-8 py-4 text-base md:text-lg font-semibold transition-all duration-200";
+
   return (
     <section className="relative bg-surface-alt overflow-hidden">
       <div className="container mx-auto px-4 py-16 md:py-24 lg:py-32">
@@ -17,26 +20,36 @@ export default function Hero() {
               <span className="text-secondary italic">Issaquah, Washington</span>
             </h1>
             <p className="text-lg md:text-xl text-muted mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-              Swedish massage, Deep Tissue massage, and targeted enhancements in a clean, professional setting near downtown Issaquah.
+              Deep Tissue Therapy, Relaxation Massage, and targeted enhancements in a clean, professional setting near downtown Issaquah.
             </p>
             
-            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 justify-center lg:justify-start">
-              <BookNowButton className="bg-accent text-accent-foreground px-8 py-4 rounded-full text-lg font-semibold hover:bg-accent/90 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200">
-                Book Online
-              </BookNowButton>
-              <a
-                href={site.phoneHref}
-                className="bg-white text-primary border border-primary/20 px-8 py-4 rounded-full text-lg font-semibold hover:bg-surface-alt transition-colors shadow-sm hover:shadow-md flex items-center justify-center gap-2"
-              >
-                <span className="text-secondary">Call</span>
-                <span>{site.phone}</span>
-              </a>
-              <a 
-                href="#services"
-                className="bg-surface text-primary border border-primary/10 px-8 py-4 rounded-full text-lg font-medium hover:bg-white transition-colors shadow-sm hover:shadow-md flex items-center justify-center"
-              >
-                View Services
-              </a>
+            <div className="flex flex-col items-center lg:items-start gap-3">
+              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 justify-center lg:justify-start">
+                <BookNowButton
+                  className={`${actionClass} bg-accent text-accent-foreground shadow-lg hover:bg-accent/90 hover:shadow-xl hover:-translate-y-0.5`}
+                >
+                  {site.bookingCtaLabel}
+                </BookNowButton>
+
+                <a
+                  href={site.phoneHref}
+                  className={`${actionClass} border border-primary/20 bg-white text-primary shadow-sm hover:-translate-y-0.5 hover:bg-surface-alt hover:shadow-md`}
+                >
+                  <span className="text-secondary">Call</span>
+                  <span className="ml-2">{site.phone}</span>
+                </a>
+
+                <a
+                  href="#services"
+                  className={`${actionClass} border border-primary/10 bg-surface text-primary shadow-sm hover:-translate-y-0.5 hover:bg-white hover:shadow-md`}
+                >
+                  View Services
+                </a>
+              </div>
+
+              <p className="max-w-md text-center text-sm text-muted lg:text-left">
+                {site.bookingNote}
+              </p>
             </div>
             
             <div className="mt-10 flex flex-col gap-3 text-sm font-medium text-muted items-center lg:items-start">
@@ -46,7 +59,7 @@ export default function Hero() {
                   </span>
                   <div className="text-left">
                     <p className="text-base text-primary font-semibold">{site.phone}</p>
-                    <p>Open daily 10:30 AM – 8:30 PM</p>
+                    <p>{site.hoursText}</p>
                   </div>
                 </div>
                 <p className="text-center lg:text-left">Call ahead or book online to reserve your preferred time.</p>
@@ -56,7 +69,7 @@ export default function Hero() {
           <div className="relative order-1 lg:order-2 h-[400px] md:h-[500px] lg:h-[600px] w-full rounded-3xl overflow-hidden shadow-2xl">
             <Image
               src="/photos/stock2.jpg"
-              alt="Relaxing massage atmosphere at Eastern Massage Spa"
+              alt="Massage therapy room at Eastern Massage Spa in Issaquah"
               fill
               className="object-cover hover:scale-105 transition-transform duration-700 ease-out"
               priority

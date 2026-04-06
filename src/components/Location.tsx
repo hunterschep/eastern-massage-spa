@@ -74,7 +74,7 @@ export default function Location() {
              <div className="relative h-64 md:h-80 w-full rounded-2xl overflow-hidden shadow-lg">
                 <Image 
                     src="/photos/stock3.jpg"
-                    alt="Treatment room at Eastern Massage Spa"
+                    alt="Treatment room at Eastern Massage Spa in Issaquah"
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

@@ -23,10 +23,13 @@ export default function Navbar() {
           </div>
         </Link>
         <div className="hidden md:flex gap-8 text-sm font-medium text-muted">
-          <Link href="#services" className="hover:text-primary transition-colors">
+          <Link href="/services" className="hover:text-primary transition-colors">
             Services
           </Link>
-          <Link href="#location" className="hover:text-primary transition-colors">
+          <Link href="/#faq" className="hover:text-primary transition-colors">
+            FAQ
+          </Link>
+          <Link href="/#location" className="hover:text-primary transition-colors">
             Location &amp; Hours
           </Link>
         </div>
@@ -39,7 +42,7 @@ export default function Navbar() {
             <span className="tracking-tight">{site.phone}</span>
           </a>
           <BookNowButton className="bg-accent text-accent-foreground px-4 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-center hover:bg-accent/90 transition-colors shadow-md focus-visible:outline focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent">
-            Book Online
+            {site.bookingCtaLabel}
           </BookNowButton>
         </div>
       </div>

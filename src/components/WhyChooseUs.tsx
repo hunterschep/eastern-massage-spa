@@ -9,7 +9,7 @@ const highlights = [
   {
     title: "Central Issaquah Location",
     body:
-      `Conveniently located at ${site.address.streetAddress} in ${site.address.addressLocality} for clients who want a dependable local massage studio.`,
+      `Conveniently located at ${site.address.streetAddress} in ${site.address.addressLocality} for clients who want dependable massage therapy close to downtown and nearby Eastside communities.`,
   },
   {
     title: "Customized Enhancements",
@@ -19,7 +19,7 @@ const highlights = [
   {
     title: "Open Daily",
     body:
-      "Appointments are available seven days a week, making it easier to schedule massage therapy around work, family, and training routines.",
+      `${site.hoursText}, making it easier to schedule massage therapy around work, family, and training routines.`,
   },
 ];
 
@@ -36,9 +36,9 @@ export default function WhyChooseUs() {
           </h2>
           <p className="text-lg text-muted leading-relaxed">
             Eastern Massage Spa helps clients in Issaquah address daily stress,
-            overworked muscles, stiffness, and general body tension with
-            straightforward therapeutic massage care in a calm, professional
-            environment.
+            overworked muscles, stiffness, and general body tension with Deep
+            Tissue Therapy, Relaxation Massage, and straightforward therapeutic
+            care in a calm, professional environment.
           </p>
         </div>
 

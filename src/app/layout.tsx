@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
 import { Geist, Geist_Mono, Cormorant_Garamond } from "next/font/google";
+import JsonLd from "@/components/JsonLd";
 import { site } from "@/data/site";
 import "./globals.css";
 
@@ -30,9 +30,11 @@ export const metadata: Metadata = {
   applicationName: site.name,
   keywords: [
     "Massage Issaquah",
+    "Massage Therapy Issaquah WA",
     site.name,
-    "Deep Tissue Massage Issaquah",
-    "Swedish Massage Issaquah",
+    "Massage Spa Issaquah",
+    "Deep Tissue Therapy Issaquah",
+    "Relaxation Massage Issaquah",
     "Licensed Massage Therapists Issaquah",
     "Prenatal Massage Issaquah",
     "Hot Stone Massage Issaquah",
@@ -192,18 +194,6 @@ export default function RootLayout({
         target: site.bookingUrl,
       },
     },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: site.faqs.map((faq) => ({
-        "@type": "Question",
-        name: faq.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: faq.answer,
-        },
-      })),
-    },
   ];
 
   return (
@@ -211,12 +201,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable} antialiased bg-background text-foreground`}
       >
-        <Script
-          id="structured-data"
-          type="application/ld+json"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
+        <JsonLd id="site-structured-data" data={structuredData} />
         {children}
       </body>
     </html>

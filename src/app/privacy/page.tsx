@@ -86,7 +86,7 @@ export default function PrivacyPolicy() {
             <p>
               We may also receive booking, scheduling, payment-status, and
               messaging information from third-party service providers that help
-              us operate the business, such as Square, payment processors,
+              us operate the business, such as Fresha, payment processors,
               website hosting providers, or mapping providers.
             </p>
           </section>
@@ -210,7 +210,7 @@ export default function PrivacyPolicy() {
           <section>
             <h2>9. Third-Party Services and External Sites</h2>
             <p>
-              Our website links to third-party services, including Square and
+              Our website links to third-party services, including Fresha and
               Google Maps. Those third parties operate under their own terms and
               privacy policies, and we are not responsible for their separate
               privacy practices. You should review their policies before

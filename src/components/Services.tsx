@@ -1,5 +1,6 @@
+import Link from "next/link";
 import Image from "next/image";
-import { site } from "@/data/site";
+import { getServiceUrl, site } from "@/data/site";
 
 export default function Services() {
   return (
@@ -12,16 +13,23 @@ export default function Services() {
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-secondary mb-4">Licensed Massage Therapists</p>
             <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 font-serif">Massage Services and Pricing</h2>
             <p className="text-muted max-w-2xl mx-auto text-lg">
-                Therapeutic • Relaxation • Custom Care
+                Therapeutic care with transparent pricing, detailed service pages, and online availability.
             </p>
         </div>
         
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
            <div className="space-y-8">
-              {site.services.map((service, idx) => (
-                <div key={idx} className="bg-surface p-8 md:p-10 rounded-2xl border border-primary/10 shadow-sm hover:shadow-md transition-shadow duration-300">
+              {site.services.map((service) => (
+                <div key={service.slug} className="bg-surface p-8 md:p-10 rounded-2xl border border-primary/10 shadow-sm hover:shadow-md transition-shadow duration-300">
                   <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                      <h3 className="text-2xl font-serif font-semibold text-primary">{service.category}</h3>
+                      <h3 className="text-2xl font-serif font-semibold text-primary">
+                        <Link
+                          href={getServiceUrl(service.slug)}
+                          className="hover:text-secondary transition-colors"
+                        >
+                          {service.category}
+                        </Link>
+                      </h3>
                       {service.subtitle && <span className="text-xs font-bold text-secondary uppercase tracking-wider border border-secondary/50 px-2 py-1 rounded-full">{service.subtitle}</span>}
                   </div>
                   <p className="text-muted mb-8 leading-relaxed">{service.description}</p>
@@ -33,6 +41,14 @@ export default function Services() {
                       </li>
                     ))}
                   </ul>
+                  <div className="mt-8">
+                    <Link
+                      href={getServiceUrl(service.slug)}
+                      className="text-sm font-semibold text-secondary underline underline-offset-4 hover:text-primary transition-colors"
+                    >
+                      Explore {service.category} details
+                    </Link>
+                  </div>
                 </div>
               ))}
            </div>
@@ -41,7 +57,7 @@ export default function Services() {
                 <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-xl mb-12">
                     <Image 
                         src="/photos/stock1.jpg" 
-                        alt="Massage table setup with oils and warm towels" 
+                        alt="Massage table setup at Eastern Massage Spa in Issaquah" 
                         fill 
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

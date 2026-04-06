@@ -14,7 +14,7 @@ export default function BookNowButton({
   const isExternal = href.startsWith("http");
   const ariaLabel = href.startsWith("tel:")
     ? `Call ${site.name} to book an appointment`
-    : `Book with ${site.name}`;
+    : `Check availability and book with ${site.name}`;
 
   return (
     <a
