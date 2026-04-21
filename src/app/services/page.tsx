@@ -10,7 +10,7 @@ import { getServiceUrl, site } from "@/data/site";
 const pageUrl = `${site.url}/services`;
 const title = `Massage Services in ${site.address.addressLocality}, ${site.address.addressRegion}`;
 const description =
-  "Compare massage services in Issaquah, WA, including Deep Tissue Therapy and Relaxation Massage. Review pricing, session lengths, and book online.";
+  "Compare massage services in Issaquah, WA, including Advanced Recovery Therapy, Targeted Therapeutic Massage, Essential Relaxation Massage, and cupping therapy. Review pricing, session lengths, and book online.";
 
 export const metadata: Metadata = {
   title,
@@ -101,10 +101,10 @@ export default function ServicesPage() {
               Massage Services in Issaquah, WA
             </h1>
             <p className="text-lg md:text-xl text-muted leading-relaxed">
-              Eastern Massage Spa offers focused therapeutic massage services for
-              clients who want stress relief, firmer bodywork, and session
-              enhancements in a professional Issaquah setting. Review each
-              service below to compare pricing, session lengths, and fit.
+              Eastern Massage Spa offers recovery-focused, therapeutic, and
+              relaxation services for clients who want clear options and
+              transparent pricing in a professional Issaquah setting. Review
+              each service below to compare session lengths, pricing, and fit.
             </p>
           </div>
 
@@ -152,21 +152,45 @@ export default function ServicesPage() {
           </div>
 
           <section className="mt-16 rounded-3xl bg-primary text-primary-foreground p-8 md:p-10">
-            <div className="max-w-3xl">
-              <h2 className="text-3xl font-semibold mb-4">
-                Add enhancements or book your preferred session online
-              </h2>
-              <p className="text-primary-foreground/80 leading-relaxed mb-6">
-                Aromatherapy, hot stones, prenatal upgrade, cupping therapy, and
-                CBD oil enhancement are available add-ons. Online booking shows
-                currently released times, and calling us is always an option if
-                you want help choosing the right service.
-              </p>
-              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                <BookNowButton className="inline-flex items-center justify-center bg-accent text-accent-foreground px-6 py-3 rounded-full font-semibold hover:bg-accent/90 transition-colors">
-                  {site.bookingCtaLabel}
-                </BookNowButton>
-                <p className="text-sm text-primary-foreground/70">{site.bookingNote}</p>
+            <div className="grid gap-10 lg:grid-cols-[1fr_1.05fr] lg:items-start">
+              <div className="max-w-2xl">
+                <h2 className="text-3xl font-semibold mb-4">
+                  Add enhancements or book your preferred session online
+                </h2>
+                <p className="text-primary-foreground/80 leading-relaxed mb-6">
+                  Hot stones, advanced cupping therapy, CBD oil enhancement,
+                  and aromatherapy are available add-ons for massage
+                  appointments. Online booking shows currently released times,
+                  and calling us is always an option if you want help choosing
+                  the right service.
+                </p>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                  <BookNowButton className="inline-flex items-center justify-center bg-accent text-accent-foreground px-6 py-3 rounded-full font-semibold hover:bg-accent/90 transition-colors">
+                    {site.bookingCtaLabel}
+                  </BookNowButton>
+                  <p className="text-sm text-primary-foreground/70">{site.bookingNote}</p>
+                </div>
+              </div>
+
+              <div className="grid gap-3">
+                {site.addons.map((addon) => (
+                  <div
+                    key={addon.name}
+                    className="rounded-2xl border border-white/10 bg-white/10 p-4"
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <p className="font-semibold">{addon.name}</p>
+                        <p className="mt-1 text-sm text-primary-foreground/75">
+                          {addon.description}
+                        </p>
+                      </div>
+                      <span className="shrink-0 font-semibold text-secondary">
+                        {addon.price}
+                      </span>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </section>

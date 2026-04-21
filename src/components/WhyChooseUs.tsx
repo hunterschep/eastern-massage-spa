@@ -14,7 +14,7 @@ const highlights = [
   {
     title: "Customized Enhancements",
     body:
-      "Add aromatherapy, hot stones, prenatal upgrade, cupping therapy, or CBD oil to tailor your appointment to your needs.",
+      "Add hot stones, advanced cupping therapy, CBD oil, or aromatherapy to tailor your massage session to your needs.",
   },
   {
     title: "Open Daily",
@@ -36,9 +36,10 @@ export default function WhyChooseUs() {
           </h2>
           <p className="text-lg text-muted leading-relaxed">
             Eastern Massage Spa helps clients in Issaquah address daily stress,
-            overworked muscles, stiffness, and general body tension with Deep
-            Tissue Therapy, Relaxation Massage, and straightforward therapeutic
-            care in a calm, professional environment.
+            overworked muscles, stiffness, mobility restrictions, and general
+            body tension with advanced recovery therapy, therapeutic massage,
+            relaxation sessions, and straightforward care in a calm,
+            professional environment.
           </p>
         </div>
 

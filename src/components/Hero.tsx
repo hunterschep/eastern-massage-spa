@@ -20,7 +20,9 @@ export default function Hero() {
               <span className="text-secondary italic">Issaquah, Washington</span>
             </h1>
             <p className="text-lg md:text-xl text-muted mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-              Deep Tissue Therapy, Relaxation Massage, and targeted enhancements in a clean, professional setting near downtown Issaquah.
+              Advanced Recovery Therapy, targeted massage, relaxation sessions,
+              and cupping support in a clean, professional setting near
+              downtown Issaquah.
             </p>
             
             <div className="flex flex-col items-center lg:items-start gap-3">

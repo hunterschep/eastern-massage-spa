@@ -11,8 +11,9 @@ export default function Footer() {
           </span>
           <p className="text-primary-foreground/75 leading-relaxed">
             Professional massage therapy in Issaquah, Washington, offering
-            Deep Tissue Therapy, Relaxation Massage, and session enhancements for
-            relaxation and recovery.
+            advanced recovery therapy, therapeutic massage, relaxation
+            services, cupping therapy, and session enhancements for recovery
+            and wellness.
           </p>
           <p className="text-primary-foreground/65 mt-3">
             {site.address.streetAddress}, {site.address.addressLocality},{" "}

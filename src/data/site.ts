@@ -3,6 +3,12 @@ export type ServiceItem = {
   price: string;
 };
 
+export type AddonItem = {
+  name: string;
+  price: string;
+  description: string;
+};
+
 export type ServiceFaq = {
   question: string;
   answer: string;
@@ -30,7 +36,7 @@ export const site = {
   legalName: "Eastern Massage Spa",
   url: "https://easternmassagespa.me",
   description:
-    "Massage therapy in Issaquah, WA offering Deep Tissue Therapy, Relaxation Massage, and custom enhancements near downtown Issaquah.",
+    "Massage therapy in Issaquah, WA offering Advanced Recovery Therapy, Targeted Therapeutic Massage, Essential Relaxation Massage, and cupping therapy near downtown Issaquah.",
   phone: "(206) 750-6868",
   phoneHref: "tel:+12067506868",
   bookingUrl:
@@ -78,91 +84,182 @@ export const site = {
   services: [
     {
       slug: "deep-tissue-therapy",
-      category: "Deep Tissue Therapy",
+      category: "Advanced Recovery Therapy",
       description:
-        "Focused, firm-pressure bodywork designed for chronic tension, overworked muscles, stiffness, and recovery-oriented massage sessions.",
+        "High-performance treatment designed for clients who need real results, not just relaxation.",
       intro:
-        "Deep Tissue Therapy at Eastern Massage Spa in Issaquah is designed for clients dealing with persistent tightness in the neck, shoulders, back, hips, or legs. Sessions use slower, more focused techniques to work through areas that feel restricted from desk work, repetitive strain, training, or physically demanding routines.",
+        "Advanced Recovery Therapy combines deep tissue work, dynamic cupping, and CBD therapy to release stubborn tension, restore mobility, and reset the body. It is designed for clients who need focused recovery work rather than a lighter relaxation-only session.",
       benefits: [
-        "Targets stubborn tightness in the neck, shoulders, back, hips, and legs.",
-        "Uses focused pressure and slower techniques for areas that feel restricted or overworked.",
-        "Supports recovery when lighter-pressure massage is not specific enough for the issue.",
+        "Combines deep tissue, dynamic cupping, and CBD therapy in one recovery-focused session.",
+        "Helps release stubborn tension, improve mobility, and reduce restriction in overworked areas.",
+        "Provides a more intensive treatment option for clients who need measurable bodywork results.",
       ],
       bestFor: [
-        "Clients with chronic tension or recurring stiffness.",
-        "People who prefer firmer pressure and more targeted bodywork.",
-        "Desk workers, active clients, and anyone managing overworked muscle groups.",
+        "Clients with stubborn tension, restricted mobility, or recurring tightness.",
+        "Active clients, athletes, and people with physically demanding routines.",
+        "Anyone who wants intensive therapeutic work instead of a relaxation-focused session.",
       ],
       items: [
-        { name: "60 minutes", price: "$105" },
-        { name: "90 minutes", price: "$150" },
-        { name: "120 minutes", price: "$200" },
+        { name: "90 min", price: "$180" },
+        { name: "120 min", price: "$250" },
       ],
       faqs: [
         {
-          question: "Is Deep Tissue Therapy supposed to feel painful?",
+          question: "What makes Advanced Recovery Therapy different?",
           answer:
-            "The session can feel more intense than a relaxation-focused massage, but pressure should still feel productive and manageable. Your therapist can adjust pressure and technique based on how your body responds.",
+            "Advanced Recovery Therapy goes beyond a standard therapeutic massage by combining deep tissue work with dynamic cupping and CBD therapy. It is built for clients who want a more results-driven session focused on tension relief, mobility, and recovery.",
         },
         {
-          question: "Who usually books Deep Tissue Therapy?",
+          question: "Is Advanced Recovery Therapy only for athletes?",
           answer:
-            "Clients commonly book it for stubborn tension, limited mobility, overworked muscles, and areas that have not responded well to lighter pressure.",
+            "No. It works well for athletes, desk workers, and anyone dealing with persistent tightness or limited mobility. The key factor is needing more focused recovery work, not a specific lifestyle label.",
         },
         {
-          question: "How often should I schedule Deep Tissue Therapy?",
+          question: "Should I choose 90 minutes or 120 minutes?",
           answer:
-            "That depends on your tension patterns, workload, and goals. Some clients book occasionally for maintenance, while others come more regularly during periods of higher stress or physical demand.",
+            "Ninety minutes is a strong option for focused full-body recovery or a couple of priority areas. One hundred twenty minutes gives more time for deeper work, broader coverage, and a slower recovery-focused pace.",
+        },
+      ],
+    },
+    {
+      slug: "targeted-therapeutic-massage",
+      category: "Targeted Therapeutic Massage",
+      description:
+        "A focused, effective session using medium to firm pressure to relieve tension and restore balance.",
+      intro:
+        "Targeted Therapeutic Massage is designed for clients who need real work without committing to the full Advanced Recovery Therapy session. Medium to firm pressure is used to address tension patterns, reduce tightness, and help the body feel more balanced.",
+      benefits: [
+        "Uses focused therapeutic work to ease tension without the full advanced recovery package.",
+        "Helps relieve muscular tightness and restore a more balanced feel in the body.",
+        "Offers a clear middle ground between deep recovery work and general relaxation massage.",
+      ],
+      bestFor: [
+        "Clients who want medium to firm pressure and targeted tension relief.",
+        "People dealing with stress, stiffness, or localized problem areas.",
+        "Anyone who wants therapeutic bodywork without the full advanced treatment.",
+      ],
+      items: [
+        { name: "60 min", price: "$115" },
+        { name: "90 min", price: "$165" },
+      ],
+      faqs: [
+        {
+          question: "How is Targeted Therapeutic Massage different from Advanced Recovery Therapy?",
+          answer:
+            "Targeted Therapeutic Massage uses medium to firm pressure to address tension and restore balance, but it does not include the full deep tissue, cupping, and CBD combination built into Advanced Recovery Therapy.",
+        },
+        {
+          question: "What kind of pressure should I expect?",
+          answer:
+            "This service is typically performed with medium to firm pressure. The goal is effective therapeutic work that still feels productive and manageable.",
+        },
+        {
+          question: "Who usually books this service?",
+          answer:
+            "Clients often choose it when they want real tension relief, focused attention on problem areas, and a practical therapeutic session without moving into the most intensive treatment tier.",
         },
       ],
     },
     {
       slug: "relaxation-massage",
-      category: "Relaxation Massage",
+      category: "Essential Relaxation Massage",
       description:
-        "A calming massage with gentle to medium pressure designed to reduce stress, improve circulation, and help clients unwind.",
+        "A light to moderate pressure session focused on relaxation, circulation, and stress relief.",
       intro:
-        "Relaxation Massage is a good fit for clients who want a calming, full-body session that eases everyday stress and general tension. At our Issaquah location, this service focuses on helping the body slow down, recover, and feel more balanced without the more intense pressure used in deeper work.",
+        "Essential Relaxation Massage is designed for general wellness, stress relief, and a calmer full-body reset. Pressure stays light to moderate, making it a better fit for relaxation, circulation, and nervous system recovery than for deep or stubborn muscle tension.",
       benefits: [
-        "Encourages a calmer, more restorative massage experience.",
-        "Helps reduce general body tension and everyday stress.",
-        "Promotes circulation and overall relaxation with gentle to medium pressure.",
+        "Promotes relaxation, circulation, and full-body stress relief.",
+        "Uses light to moderate pressure for a calmer, more restorative experience.",
+        "Supports general wellness without the intensity of deeper therapeutic work.",
       ],
       bestFor: [
-        "Clients who want stress relief and a more soothing session.",
-        "People newer to massage or those who do not want intense pressure.",
-        "Anyone looking for a calming appointment that supports rest and recovery.",
+        "Clients looking to relax, de-stress, and recharge.",
+        "People who prefer lighter pressure and a more soothing pace.",
+        "General wellness appointments rather than intensive recovery work.",
       ],
       items: [
-        { name: "60 minutes", price: "$90" },
-        { name: "90 minutes", price: "$130" },
-        { name: "120 minutes", price: "$170" },
+        { name: "60 min", price: "$105" },
+        { name: "90 min", price: "$145" },
+        { name: "120 min", price: "$230" },
       ],
       faqs: [
         {
-          question: "What is the difference between Relaxation Massage and Deep Tissue Therapy?",
+          question: "What is the difference between Essential Relaxation Massage and Targeted Therapeutic Massage?",
           answer:
-            "Relaxation Massage uses gentler to medium pressure and is centered on calming the body and easing general tension. Deep Tissue Therapy is more focused and firm, and is typically chosen for persistent tightness and more specific trouble spots.",
+            "Essential Relaxation Massage stays lighter and is centered on stress relief, circulation, and a calming full-body experience. Targeted Therapeutic Massage is more focused and uses medium to firm pressure for tension relief.",
         },
         {
-          question: "Can Relaxation Massage still address sore muscles?",
+          question: "Is this a good choice for first-time clients?",
           answer:
-            "Yes. It can still help with mild soreness and tension, but if you want more concentrated work on chronic tightness, Deep Tissue Therapy may be the better fit.",
+            "Often, yes. Many first-time clients prefer it because the pressure is more comfortable and the session is designed around relaxation and general wellness.",
         },
         {
-          question: "Is Relaxation Massage a good choice for first-time clients?",
+          question: "Can Essential Relaxation Massage fix deep muscle tension?",
           answer:
-            "Often, yes. It gives many first-time clients a comfortable way to experience massage therapy while still addressing stress and general muscular tension.",
+            "It can help with general tightness, but it is not designed for deep or stubborn muscle tension. If you want more focused relief, Targeted Therapeutic Massage or Advanced Recovery Therapy is usually the better fit.",
+        },
+      ],
+    },
+    {
+      slug: "cupping-therapy-dynamic-vacuum",
+      category: "Cupping Therapy (Dynamic Vacuum)",
+      subtitle: "Standalone",
+      description:
+        "A targeted cupping session designed to release deep muscle tension, improve circulation, and support recovery.",
+      intro:
+        "This standalone Dynamic Vacuum cupping session is designed for clients who want focused decompression work without booking a full massage appointment. It helps release deep muscle tension, improve local circulation, and support recovery in specific areas of the body.",
+      benefits: [
+        "Uses dynamic vacuum cupping to decompress restricted tissue and support circulation.",
+        "Targets specific recovery needs without requiring a full-length massage session.",
+        "Helps reduce tension in focused areas that feel overworked or stuck.",
+      ],
+      bestFor: [
+        "Clients who want focused cupping work as a standalone service.",
+        "People managing localized tightness, stiffness, or recovery needs.",
+        "Anyone curious about how dynamic cupping feels before adding it to a massage.",
+      ],
+      items: [{ name: "30 min", price: "$70" }],
+      faqs: [
+        {
+          question: "Can I book cupping therapy without a massage?",
+          answer:
+            "Yes. This service is offered as a standalone 30-minute appointment for clients who want targeted dynamic vacuum cupping without a full massage session.",
+        },
+        {
+          question: "Will cupping leave marks?",
+          answer:
+            "It can. Some clients notice temporary discoloration after cupping depending on the area treated and how their tissue responds, but the experience should still feel controlled and therapeutic.",
+        },
+        {
+          question: "What areas can be treated during the session?",
+          answer:
+            "The session is typically focused on a smaller number of priority areas, such as the back, shoulders, hips, or legs, depending on where you are carrying the most tension.",
         },
       ],
     },
   ] as Service[],
   addons: [
-    { name: "Aromatherapy", price: "$15" },
-    { name: "Hot Stones", price: "$15" },
-    { name: "Prenatal Upgrade", price: "$10" },
-    { name: "Cupping Therapy", price: "$25" },
-    { name: "CBD Oil Enhancement", price: "$25" },
+    {
+      name: "Hot Stones",
+      price: "$15",
+      description: "Heated stones are used to relax muscles and improve circulation.",
+    },
+    {
+      name: "Advanced Cupping Therapy (Dynamic Vacuum)",
+      price: "$30",
+      description:
+        "Dynamic cupping is applied during your session to release deeper muscle restriction.",
+    },
+    {
+      name: "CBD Oil Enhancement",
+      price: "$30",
+      description: "CBD-infused oil is used to reduce inflammation and enhance recovery.",
+    },
+    {
+      name: "Aromatherapy",
+      price: "$15",
+      description: "Essential oils are applied to promote relaxation and reduce stress.",
+    },
   ],
   faqs: [
     {
@@ -171,14 +268,19 @@ export const site = {
         "Same-day appointments are often available, but availability can change quickly. Call us at (206) 750-6868 or check online booking to see the latest openings.",
     },
     {
-      question: "What is the difference between Deep Tissue Therapy and Relaxation Massage?",
+      question: "Which massage is best if I want deeper work?",
       answer:
-        "Deep Tissue Therapy is more focused and firm for chronic tightness and overworked muscles. Relaxation Massage uses gentler to medium pressure and is better for stress relief, circulation, and general body tension.",
+        "Advanced Recovery Therapy is the most intensive option and includes deep tissue work, dynamic cupping, and CBD therapy. Targeted Therapeutic Massage uses medium to firm pressure for focused tension relief, while Essential Relaxation Massage is intended for lighter-pressure relaxation and general wellness.",
     },
     {
-      question: "Can I add aromatherapy, hot stones, cupping, or CBD oil?",
+      question: "Can I book cupping therapy without booking a massage?",
       answer:
-        "Yes. Aromatherapy, hot stones, prenatal upgrade, cupping therapy, and CBD oil enhancement are available with massage services.",
+        "Yes. Cupping Therapy (Dynamic Vacuum) is available as a standalone 30-minute service, and dynamic cupping can also be added to massage appointments as an enhancement.",
+    },
+    {
+      question: "What add-ons are available?",
+      answer:
+        "Hot Stones, Advanced Cupping Therapy (Dynamic Vacuum), CBD Oil Enhancement, and Aromatherapy are available add-ons for massage appointments.",
     },
     {
       question: "Where is Eastern Massage Spa located?",

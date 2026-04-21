@@ -69,11 +69,16 @@ export default function Services() {
                 <div className="bg-primary text-primary-foreground p-10 rounded-3xl shadow-xl relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/20 rounded-full -mr-10 -mt-10 blur-2xl"></div>
                     <h3 className="text-2xl font-serif font-semibold mb-8 text-center relative z-10">Session Enhancements</h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 relative z-10">
-                        {site.addons.map((addon, idx) => (
-                            <div key={idx} className="flex justify-between items-center p-3 bg-white/10 rounded-lg border border-white/10">
-                                <span className="font-medium">{addon.name}</span>
-                                <span className="text-secondary font-bold">{addon.price}</span>
+                    <div className="grid grid-cols-1 gap-4 relative z-10">
+                        {site.addons.map((addon) => (
+                            <div key={addon.name} className="rounded-lg border border-white/10 bg-white/10 p-4">
+                                <div className="flex items-start justify-between gap-4">
+                                    <div>
+                                        <p className="font-medium">{addon.name}</p>
+                                        <p className="mt-1 text-sm text-primary-foreground/75">{addon.description}</p>
+                                    </div>
+                                    <span className="shrink-0 text-secondary font-bold">{addon.price}</span>
+                                </div>
                             </div>
                         ))}
                     </div>

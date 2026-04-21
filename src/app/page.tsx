@@ -11,7 +11,7 @@ import { site } from "@/data/site";
 
 const title = `Massage Therapy in ${site.address.addressLocality}, ${site.address.addressRegion}`;
 const description =
-  "Book massage therapy in Issaquah, WA. Explore Deep Tissue Therapy and Relaxation Massage pricing, hours, location, and online availability at Eastern Massage Spa.";
+  "Book massage therapy in Issaquah, WA. Explore Advanced Recovery Therapy, Targeted Therapeutic Massage, Essential Relaxation Massage, cupping therapy, hours, and online availability at Eastern Massage Spa.";
 
 export const metadata: Metadata = {
   title,

@@ -226,7 +226,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
             <section className="rounded-3xl border border-primary/10 bg-white p-8 shadow-sm">
               <h2 className="text-3xl font-semibold text-primary mb-6">
-                Who this massage is best for
+                Who this service is best for
               </h2>
               <ul className="space-y-4 text-muted leading-relaxed">
                 {service.bestFor.map((item) => (
@@ -246,11 +246,11 @@ export default async function ServicePage({ params }: ServicePageProps) {
                   Customize your session with add-ons
                 </h2>
                 <p className="text-primary-foreground/80 leading-relaxed">
-                  You can add aromatherapy, hot stones, prenatal upgrade,
-                  cupping therapy, or CBD oil enhancement to either massage
-                  service. If you are deciding between services, online booking
-                  shows currently released times and calling is always an option
-                  for quick questions.
+                  Massage appointments can be customized with hot stones,
+                  advanced cupping therapy, CBD oil enhancement, or
+                  aromatherapy. If you are deciding between services, online
+                  booking shows currently released times and calling is always
+                  an option for quick questions.
                 </p>
               </div>
 
@@ -258,10 +258,19 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 {site.addons.map((addon) => (
                   <div
                     key={addon.name}
-                    className="flex justify-between items-center rounded-2xl bg-white/10 px-4 py-3 border border-white/10"
+                    className="rounded-2xl border border-white/10 bg-white/10 px-4 py-4"
                   >
-                    <span>{addon.name}</span>
-                    <span className="text-secondary font-semibold">{addon.price}</span>
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <p>{addon.name}</p>
+                        <p className="mt-1 text-sm text-primary-foreground/75">
+                          {addon.description}
+                        </p>
+                      </div>
+                      <span className="shrink-0 text-secondary font-semibold">
+                        {addon.price}
+                      </span>
+                    </div>
                   </div>
                 ))}
               </div>
