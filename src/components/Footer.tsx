@@ -1,81 +1,99 @@
+import Image from "next/image";
 import Link from "next/link";
+import { BookingLink } from "./ActionLinks";
 import { getServiceUrl, site } from "@/data/site";
+import { publicHoursText, publicUrl } from "@/utils/publicContent";
 
 export default function Footer() {
+  const reviewLinks = site.reviews.sources
+    .map((source) => ({ name: source.name, url: publicUrl(source.url) }))
+    .filter((source): source is { name: string; url: string } => Boolean(source.url));
+
   return (
-    <footer className="bg-primary text-primary-foreground py-14 text-sm border-t border-primary/20">
-      <div className="container mx-auto px-4 grid gap-10 md:grid-cols-2 xl:grid-cols-[1.5fr_1fr_1fr] items-start">
-        <div className="text-center md:text-left max-w-xl">
-          <span className="text-lg font-serif font-bold text-secondary block mb-2">
-            {site.name}
-          </span>
-          <p className="text-primary-foreground/75 leading-relaxed">
-            Professional massage therapy in Issaquah, Washington, offering
-            advanced recovery therapy, therapeutic massage, relaxation
-            services, cupping therapy, and session enhancements for recovery
-            and wellness.
+    <footer className="border-t border-primary/10 bg-[var(--surface)] py-12 text-sm">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 md:grid-cols-2 xl:grid-cols-[1.25fr_1fr_1fr_1fr]">
+        <div>
+          <Link href="/" className="inline-flex" aria-label="Eastern Massage Spa home">
+            <span className="relative block h-14 w-32">
+              <Image
+                src={site.images.logo}
+                alt={`${site.name} logo`}
+                fill
+                className="object-contain object-left"
+                unoptimized
+              />
+            </span>
+          </Link>
+          <p className="mt-4 max-w-sm leading-7 text-muted">
+            A quieter massage experience in Issaquah with Michelle at Eastern
+            Massage Spa.
           </p>
-          <p className="text-primary-foreground/65 mt-3">
-            {site.address.streetAddress}, {site.address.addressLocality},{" "}
-            {site.address.addressRegion} {site.address.postalCode}
+          <address className="mt-4 not-italic leading-7 text-muted">
+            {site.address.streetAddress}
+            <br />
+            {site.address.addressLocality}, {site.address.addressRegion}{" "}
+            {site.address.postalCode}
+          </address>
+          <p className="mt-3 leading-7 text-muted">
+            {publicHoursText(site.hoursText)}
           </p>
-          <p className="text-primary-foreground/65 mt-1">
-            {site.phone} · {site.hoursText}
-          </p>
-          <p className="text-primary-foreground/55 mt-3">
-            &copy; {new Date().getFullYear()} {site.legalName}. All rights
-            reserved.
-          </p>
+          <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+            <BookingLink ctaLocation="footer">Book a Massage</BookingLink>
+          </div>
         </div>
+
         <div className="flex flex-col gap-3">
-          <span className="font-semibold uppercase tracking-[0.2em] text-secondary text-xs">
-            Explore
-          </span>
-          <Link
-            href="/services"
-            className="text-primary-foreground/75 hover:text-secondary transition-colors"
-          >
-            Massage Services
+          <span className="font-semibold text-primary">Services</span>
+          <Link href="/services" className="text-muted hover:text-primary">
+            All Massage Services
           </Link>
           {site.services.map((service) => (
             <Link
               key={service.slug}
               href={getServiceUrl(service.slug)}
-              className="text-primary-foreground/75 hover:text-secondary transition-colors"
+              className="text-muted hover:text-primary"
             >
               {service.category}
             </Link>
           ))}
-          <Link
-            href="/#location"
-            className="text-primary-foreground/75 hover:text-secondary transition-colors"
-          >
-            Location &amp; Hours
-          </Link>
         </div>
+
         <div className="flex flex-col gap-3">
-          <span className="font-semibold uppercase tracking-[0.2em] text-secondary text-xs">
-            Policies
-          </span>
-          <Link
-            href="/privacy"
-            className="text-primary-foreground/75 hover:text-secondary transition-colors"
-          >
+          <span className="font-semibold text-primary">Studio</span>
+          <Link href="/about-michelle" className="text-muted hover:text-primary">
+            About Michelle
+          </Link>
+          <Link href="/contact" className="text-muted hover:text-primary">
+            Contact and Location
+          </Link>
+          <Link href="/#reviews" className="text-muted hover:text-primary">
+            Reviews
+          </Link>
+          <Link href="/privacy" className="text-muted hover:text-primary">
             Privacy Policy
           </Link>
-          <Link
-            href="/terms"
-            className="text-primary-foreground/75 hover:text-secondary transition-colors"
-          >
+          <Link href="/terms" className="text-muted hover:text-primary">
             Terms of Service
           </Link>
-          <a
-            href={site.phoneHref}
-            className="text-primary-foreground/75 hover:text-secondary transition-colors"
-          >
-            Call {site.phone}
-          </a>
         </div>
+
+        <div className="flex flex-col gap-3">
+          <span className="font-semibold text-primary">Review sources</span>
+          {reviewLinks.map((source) => (
+            <a
+              key={source.name}
+              href={source.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted hover:text-primary"
+            >
+              {source.name}
+            </a>
+          ))}
+        </div>
+      </div>
+      <div className="mx-auto mt-10 max-w-6xl border-t border-primary/10 px-4 pt-6 text-xs text-muted sm:px-6">
+        &copy; {new Date().getFullYear()} {site.legalName}. All rights reserved.
       </div>
     </footer>
   );

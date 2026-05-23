@@ -1,92 +1,49 @@
-import Image from "next/image";
-import BookNowButton from "./BookNowButton";
+import Link from "next/link";
+import { BookingLink, CTAGroup } from "./ActionLinks";
+import { DecorativeRule, ImageFrame, Shell } from "./DesignPrimitives";
+import ReviewHighlights from "./ReviewHighlights";
 import { site } from "@/data/site";
 
 export default function Hero() {
-  const actionClass =
-    "inline-flex min-h-14 min-w-[220px] items-center justify-center rounded-full px-8 py-4 text-base md:text-lg font-semibold transition-all duration-200";
-
   return (
-    <section className="relative bg-surface-alt overflow-hidden">
-      <div className="container mx-auto px-4 py-16 md:py-24 lg:py-32">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          
-          <div className="relative z-10 order-2 lg:order-1 text-center lg:text-left">
-            <div className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-widest text-secondary uppercase border border-secondary/30 rounded-full bg-white/50 backdrop-blur-sm">
-              Licensed Massage Therapists • Issaquah, WA
-            </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary mb-6 leading-tight font-serif">
-              Massage Therapy in <br />
-              <span className="text-secondary italic">Issaquah, Washington</span>
-            </h1>
-            <p className="text-lg md:text-xl text-muted mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-              Advanced Recovery Therapy, targeted massage, relaxation sessions,
-              and cupping support in a clean, professional setting near
-              downtown Issaquah.
+    <section className="retreat-hero bg-[var(--background)]">
+      <Shell className="py-14 md:py-20 lg:py-24">
+        <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+          <div className="reveal-soft">
+            <DecorativeRule className="mb-5" />
+            <p className="detail-label mb-4">
+              Michelle at Eastern Massage Spa - Issaquah, WA
             </p>
-            
-            <div className="flex flex-col items-center lg:items-start gap-3">
-              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 justify-center lg:justify-start">
-                <BookNowButton
-                  className={`${actionClass} bg-accent text-accent-foreground shadow-lg hover:bg-accent/90 hover:shadow-xl hover:-translate-y-0.5`}
-                >
-                  {site.bookingCtaLabel}
-                </BookNowButton>
+            <h1 className="max-w-3xl text-4xl font-bold leading-[1.08] text-primary md:text-5xl lg:text-6xl">
+              Calm, focused massage therapy in Issaquah.
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-muted">
+              Deep tissue, therapeutic massage, relaxation sessions, and cupping
+              in a quiet Issaquah studio with Michelle.
+            </p>
 
-                <a
-                  href={site.phoneHref}
-                  className={`${actionClass} border border-primary/20 bg-white text-primary shadow-sm hover:-translate-y-0.5 hover:bg-surface-alt hover:shadow-md`}
-                >
-                  <span className="text-secondary">Call</span>
-                  <span className="ml-2">{site.phone}</span>
-                </a>
+            <ReviewHighlights className="mt-7" />
 
-                <a
-                  href="#services"
-                  className={`${actionClass} border border-primary/10 bg-surface text-primary shadow-sm hover:-translate-y-0.5 hover:bg-white hover:shadow-md`}
-                >
-                  View Services
-                </a>
-              </div>
-
-              <p className="max-w-md text-center text-sm text-muted lg:text-left">
-                {site.bookingNote}
-              </p>
-            </div>
-            
-            <div className="mt-10 flex flex-col gap-3 text-sm font-medium text-muted items-center lg:items-start">
-                <div className="flex items-center gap-3">
-                  <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-secondary/20 text-secondary font-bold">
-                    WA
-                  </span>
-                  <div className="text-left">
-                    <p className="text-base text-primary font-semibold">{site.phone}</p>
-                    <p>{site.hoursText}</p>
-                  </div>
-                </div>
-                <p className="text-center lg:text-left">Call ahead or book online to reserve your preferred time.</p>
-            </div>
+            <CTAGroup className="mt-8">
+              <BookingLink ctaLocation="homepage_hero">Book a Massage</BookingLink>
+              <Link href="#services" className="fine-link inline-flex min-h-11 items-center">
+                Explore services
+              </Link>
+            </CTAGroup>
           </div>
 
-          <div className="relative order-1 lg:order-2 h-[400px] md:h-[500px] lg:h-[600px] w-full rounded-3xl overflow-hidden shadow-2xl">
-            <Image
-              src="/photos/stock2.jpg"
-              alt="Massage therapy room at Eastern Massage Spa in Issaquah"
-              fill
-              className="object-cover hover:scale-105 transition-transform duration-700 ease-out"
+          <div className="relative min-h-[390px] md:min-h-[500px]">
+            <ImageFrame
+              src={site.images.hero}
+              alt="Quiet massage session at Eastern Massage Spa in Issaquah"
               priority
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              unoptimized
+              sizes="(max-width: 1024px) 100vw, 46vw"
+              className="absolute inset-x-0 top-0 h-[380px] md:h-[480px]"
+              imageClassName="object-[60%_center]"
             />
-            {/* Decorative overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-60"></div>
           </div>
-          
         </div>
-      </div>
-      
-      {/* Decorative floral element or shape could go here */}
-      <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-secondary/5 rounded-full blur-3xl pointer-events-none"></div>
+      </Shell>
     </section>
   );
 }

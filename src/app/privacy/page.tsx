@@ -1,39 +1,62 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Footer from "@/components/Footer";
+import LegalShell from "@/components/LegalShell";
+import Navbar from "@/components/Navbar";
 import { site } from "@/data/site";
 
 const LAST_UPDATED = "March 22, 2026";
+const pageUrl = `${site.url}/privacy`;
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: `${site.name} privacy policy explaining how website, booking, contact, and intake information is collected, used, and protected.`,
+  alternates: {
+    canonical: pageUrl,
+  },
+  openGraph: {
+    title: `Privacy Policy | ${site.name}`,
+    description: `${site.name} privacy policy for website, booking, contact, and intake information.`,
+    url: pageUrl,
+    images: [
+      {
+        url: site.images.og,
+        width: 1200,
+        height: 630,
+        alt: `${site.name} treatment room in Issaquah`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Privacy Policy | ${site.name}`,
+    description: `${site.name} privacy policy for website, booking, contact, and intake information.`,
+    images: [site.images.og],
+  },
 };
 
 export default function PrivacyPolicy() {
   return (
-    <main className="legal-page">
-      <div className="legal-card">
-        <div className="mb-8">
-          <Link
-            href="/"
-            className="text-secondary hover:text-primary transition-colors mb-8 inline-block"
-          >
-            ← Back to Home
-          </Link>
-          <h1 className="text-4xl font-serif font-bold text-primary mb-4">
-            Privacy Policy
-          </h1>
-          <p className="text-muted">Last Updated: {LAST_UPDATED}</p>
-        </div>
-
-        <div className="legal-prose">
+    <>
+      <Navbar />
+      <LegalShell
+        title="Privacy Policy"
+        lastUpdated={LAST_UPDATED}
+        description="How Eastern Massage Spa handles website, booking, contact, and intake information."
+        summaryLabel="Privacy policy highlights"
+        summaryItems={[
+          "Information is used to book appointments, communicate with clients, and provide appropriate massage care.",
+          "Health and intake details are treated as sensitive and are not sold.",
+          "Booking, payment, map, hosting, and analytics providers may process information under their own policies.",
+          "Privacy questions can be directed to Eastern Massage Spa by mail.",
+        ]}
+      >
           <p>
-            This Privacy Policy describes how {site.legalName} (&quot;{site.name},&quot;
+            This Privacy Policy explains how {site.legalName} (&quot;{site.name},&quot;
             &quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) collects, uses, discloses, and protects
             information when you visit our website, contact us, book services, or
-            receive massage therapy services. By using our website or providing
-            information to us, you agree to the practices described in this
-            Privacy Policy.
+            receive massage therapy services. The goal is simple: use the
+            information needed to run appointments carefully, communicate clearly,
+            and provide massage services responsibly.
           </p>
 
           <section>
@@ -77,7 +100,6 @@ export default function PrivacyPolicy() {
             <h2>2. Sources of Information</h2>
             <p>We collect information directly from you when you:</p>
             <ul>
-              <li>Call or text us.</li>
               <li>Book through our online booking page.</li>
               <li>Submit information during intake or before a session.</li>
               <li>Speak with us in person at our location.</li>
@@ -194,27 +216,27 @@ export default function PrivacyPolicy() {
               appeal a denial of your request.
             </p>
             <p>
-              To make a privacy request, call us at {site.phone} or write to us
-              at {site.address.streetAddress}, {site.address.addressLocality},{" "}
-              {site.address.addressRegion} {site.address.postalCode}. We may ask
-              for information reasonably necessary to verify your request before
-              acting on it.
+              To make a privacy request, write to us at{" "}
+              {site.address.streetAddress}, {site.address.addressLocality},{" "}
+              {site.address.addressRegion} {site.address.postalCode}. We may
+              ask for information reasonably necessary to verify your request
+              before acting on it.
             </p>
             <p>
-              If we deny a request, you may appeal that decision by contacting us
-              again through the same phone or mailing address and clearly stating
-              that you are submitting an appeal.
+              If we deny a request, you may appeal that decision by contacting
+              us again through the same mailing address and clearly stating that
+              you are submitting an appeal.
             </p>
           </section>
 
           <section>
             <h2>9. Third-Party Services and External Sites</h2>
             <p>
-              Our website links to third-party services, including Fresha and
-              Google Maps. Those third parties operate under their own terms and
-              privacy policies, and we are not responsible for their separate
-              privacy practices. You should review their policies before
-              providing information through their services.
+              Our website links to third-party services, including Fresha,
+              Google Maps, and analytics or tag-management tools if enabled.
+              These services may collect or process information under their own
+              terms and privacy policies. You should review those policies before
+              providing information through a third-party service.
             </p>
           </section>
 
@@ -251,12 +273,16 @@ export default function PrivacyPolicy() {
               <br />
               {site.address.addressLocality}, {site.address.addressRegion}{" "}
               {site.address.postalCode}
-              <br />
-              {site.phone}
+              {site.emailPlaceholder.startsWith("[") ? null : (
+                <>
+                  <br />
+                  {site.emailPlaceholder}
+                </>
+              )}
             </p>
           </section>
-        </div>
-      </div>
-    </main>
+      </LegalShell>
+      <Footer />
+    </>
   );
 }

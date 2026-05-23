@@ -1,4 +1,6 @@
-import Image from "next/image";
+import { BookingLink, DirectionsLink } from "./ActionLinks";
+import { Section, SectionHeading, Shell, SoftPanel } from "./DesignPrimitives";
+import HoursList from "./HoursList";
 import { site } from "@/data/site";
 
 export default function Location() {
@@ -8,97 +10,66 @@ export default function Location() {
   const mapEmbedUrl = `https://maps.google.com/maps?q=${mapQuery}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
 
   return (
-    <section id="location" className="py-24 bg-surface-alt">
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start max-w-6xl mx-auto">
-            {/* Contact & Map Column */}
-          <div className="space-y-12 order-2 lg:order-1">
-            <div>
-                <h2 className="text-4xl font-serif font-bold mb-6 text-primary">Location and Business Hours</h2>
-            </div>
-            
-            <div className="grid sm:grid-cols-2 gap-6">
-                <div className="bg-surface p-6 rounded-xl border border-primary/10 shadow-sm">
-                    <h3 className="font-serif font-semibold text-primary mb-3 text-lg">
-                        Address
-                    </h3>
-                    <address className="not-italic text-muted mb-4 leading-relaxed">
-                    {site.address.streetAddress}<br />
-                    {site.address.addressLocality}, {site.address.addressRegion} {site.address.postalCode}
-                    </address>
-                    <a 
-                        href={site.mapUrl}
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-sm font-semibold text-secondary underline underline-offset-4 hover:text-primary transition-colors"
-                    >
-                        Get Directions
-                    </a>
-                </div>
-                
-                <div className="bg-surface p-6 rounded-xl border border-primary/10 shadow-sm">
-                    <h3 className="font-serif font-semibold text-primary mb-3 text-lg">
-                        Phone
-                    </h3>
-                    <p className="text-muted mb-4">
-                        Questions or ready to book? Give us a call.
-                    </p>
-                    <a href={site.phoneHref} className="text-xl font-bold text-secondary hover:text-primary transition-colors">
-                    {site.phone}
-                    </a>
-                </div>
+    <Section id="location" className="bg-[var(--surface)]">
+      <Shell>
+        <SectionHeading
+          label="Issaquah studio"
+          title="Find the studio and arrive prepared."
+        />
+
+        <div className="mt-10 grid gap-5 lg:grid-cols-2 lg:items-stretch">
+          <SoftPanel className="flex h-full flex-col overflow-hidden p-0">
+            <div className="p-5 md:p-6">
+              <h3 className="text-2xl font-semibold text-primary">Address</h3>
+              <address className="mt-4 not-italic leading-7 text-muted">
+                {site.address.streetAddress}
+                <br />
+                {site.address.addressLocality}, {site.address.addressRegion}{" "}
+                {site.address.postalCode}
+              </address>
+              <div className="mt-6">
+                <DirectionsLink ctaLocation="homepage_location">
+                  Get Directions
+                </DirectionsLink>
+              </div>
             </div>
 
-            {/* Map Embed */}
-            <div className="w-full h-80 bg-stone-200 rounded-2xl overflow-hidden border border-primary/10 shadow-md relative">
-                <iframe 
-                    width="100%" 
-                    height="100%" 
-                    id="gmap_canvas" 
-                    src={mapEmbedUrl}
-                    frameBorder="0" 
-                    scrolling="no" 
-                    marginHeight={0} 
-                    marginWidth={0}
-                    title="Google Map of Eastern Massage Spa location"
-                    className="absolute inset-0"
-                    loading="lazy"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                >
-                </iframe>
+            <div className="relative min-h-72 flex-1 border-t border-primary/10 bg-[var(--surface-alt)] lg:min-h-[320px]">
+              <iframe
+                width="100%"
+                height="100%"
+                src={
+                  site.mapEmbedUrlPlaceholder.startsWith("http")
+                    ? site.mapEmbedUrlPlaceholder
+                    : mapEmbedUrl
+                }
+                title="Google Map of Eastern Massage Spa in Issaquah"
+                className="absolute inset-0"
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
             </div>
-          </div>
+          </SoftPanel>
 
-          {/* Hours & Image Column */}
-          <div className="order-1 lg:order-2 space-y-8">
-             <div className="relative h-64 md:h-80 w-full rounded-2xl overflow-hidden shadow-lg">
-                <Image 
-                    src="/photos/stock3.jpg"
-                    alt="Treatment room at Eastern Massage Spa in Issaquah"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    unoptimized
-                />
-             </div>
+          <SoftPanel className="flex h-full flex-col p-5 md:p-6">
+            <h3 className="mb-5 text-2xl font-semibold text-primary">Business hours</h3>
+            <HoursList />
 
-             <div className="bg-primary text-primary-foreground p-8 md:p-10 rounded-2xl shadow-lg border border-primary/50">
-                <h3 className="text-2xl font-serif font-bold mb-8 text-center">Business Hours</h3>
-                <ul className="space-y-4">
-                    {site.hours.map((item, idx) => (
-                        <li key={idx} className="flex justify-between items-center text-primary-foreground/80 border-b border-primary-foreground/20 pb-4 last:border-0 last:pb-0">
-                            <span className="font-medium">{item.label}</span>
-                            <span className="text-right font-bold text-secondary">{item.hours}</span>
-                        </li>
-                    ))}
-                </ul>
-                <div className="mt-8 text-center text-sm text-primary-foreground/70">
-                    Holiday hours may vary.
-                </div>
-             </div>
-          </div>
+            <div className="mt-auto border-t border-primary/10 pt-6">
+              <h3 className="text-lg font-semibold text-primary">Book online</h3>
+              <p className="mt-3 max-w-xl leading-7 text-muted">
+                Fresha shows Michelle&apos;s current openings, service lengths, and
+                confirmed pricing before you schedule.
+              </p>
+              <div className="mt-5">
+                <BookingLink ctaLocation="homepage_location" className="w-full sm:w-auto">
+                  Book a Massage
+                </BookingLink>
+              </div>
+            </div>
+          </SoftPanel>
         </div>
-      </div>
-    </section>
+      </Shell>
+    </Section>
   );
 }

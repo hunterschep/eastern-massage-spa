@@ -1,12 +1,31 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import BookNowButton from "@/components/BookNowButton";
+import { BookingLink, CTAGroup } from "@/components/ActionLinks";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import {
+  Section,
+  SectionHeading,
+  Shell,
+  SoftPanel,
+  TrustChip,
+} from "@/components/DesignPrimitives";
+import FAQAccordion from "@/components/FAQAccordion";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import Navbar from "@/components/Navbar";
-import { getServiceBySlug, getServiceUrl, site } from "@/data/site";
+import ServiceViewTracker from "@/components/ServiceViewTracker";
+import TrustReviews from "@/components/TrustReviews";
+import {
+  getServiceBookingUrl,
+  getServiceBySlug,
+  getServiceUrl,
+  site,
+} from "@/data/site";
+import {
+  publicHoursText,
+  publicText,
+} from "@/utils/publicContent";
 
 type ServicePageProps = {
   params: Promise<{
@@ -31,8 +50,8 @@ export async function generateMetadata({
   }
 
   const pageUrl = `${site.url}${getServiceUrl(service.slug)}`;
-  const title = `${service.category} in ${site.address.addressLocality}, ${site.address.addressRegion}`;
-  const description = `${service.intro} View pricing, session lengths, and online booking for ${service.category} at ${site.name}.`;
+  const title = service.seoTitle;
+  const description = service.metaDescription;
 
   return {
     title,
@@ -44,10 +63,20 @@ export async function generateMetadata({
       title: `${title} | ${site.name}`,
       description,
       url: pageUrl,
+      images: [
+        {
+          url: site.images.og,
+          width: 1200,
+          height: 630,
+          alt: `${site.name} treatment room in Issaquah`,
+        },
+      ],
     },
     twitter: {
+      card: "summary_large_image",
       title: `${title} | ${site.name}`,
       description,
+      images: [site.images.og],
     },
   };
 }
@@ -62,6 +91,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
   const pageUrl = `${site.url}${getServiceUrl(service.slug)}`;
   const breadcrumbId = `${pageUrl}/#breadcrumb`;
+  const bookingUrl = getServiceBookingUrl(service);
 
   const breadcrumbData = {
     "@context": "https://schema.org",
@@ -95,7 +125,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
     "@id": `${pageUrl}/#service`,
     name: service.category,
     serviceType: service.category,
-    description: service.intro,
+    description: publicText(service.intro, service.description),
     areaServed: {
       "@type": "City",
       name: site.address.addressLocality,
@@ -125,20 +155,21 @@ export default async function ServicePage({ params }: ServicePageProps) {
       name: faq.question,
       acceptedAnswer: {
         "@type": "Answer",
-        text: faq.answer,
+        text: publicText(faq.answer, "Check Fresha for details."),
       },
     })),
   };
 
   return (
-    <main className="min-h-screen bg-stone-50">
+    <main className="min-h-screen bg-background">
+      <ServiceViewTracker serviceName={service.category} />
       <JsonLd id={`${service.slug}-breadcrumb-structured-data`} data={breadcrumbData} />
       <JsonLd id={`${service.slug}-service-structured-data`} data={serviceData} />
       <JsonLd id={`${service.slug}-faq-structured-data`} data={faqData} />
       <Navbar />
 
-      <section className="py-20 md:py-24">
-        <div className="container mx-auto px-4 max-w-6xl">
+      <Section className="bg-[var(--background)]">
+        <Shell>
           <Breadcrumbs
             items={[
               { label: "Home", href: "/" },
@@ -147,167 +178,162 @@ export default async function ServicePage({ params }: ServicePageProps) {
             ]}
           />
 
-          <div className="grid gap-10 lg:grid-cols-[1.35fr_0.9fr] items-start">
+          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-secondary mb-4">
-                Massage Therapy in Issaquah
-              </p>
-              <h1 className="text-4xl md:text-6xl font-bold text-primary mb-6">
+              <p className="detail-label mb-4">{service.primaryKeyword}</p>
+              <h1 className="max-w-4xl text-4xl font-bold leading-[1.08] text-primary md:text-5xl lg:text-6xl">
                 {service.category} in Issaquah, WA
               </h1>
-              <p className="text-lg md:text-xl text-muted leading-relaxed">
-                {service.intro}
+              {service.subtitle ? (
+                <p className="mt-4 text-lg font-semibold text-foreground">
+                  {service.subtitle}
+                </p>
+              ) : null}
+              <p className="mt-6 max-w-3xl text-lg leading-8 text-muted">
+                {publicText(service.intro, service.description)}
               </p>
 
-              <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
-                <BookNowButton className="inline-flex items-center justify-center bg-accent text-accent-foreground px-6 py-3 rounded-full font-semibold hover:bg-accent/90 transition-colors">
-                  {site.bookingCtaLabel}
-                </BookNowButton>
-                <Link
-                  href="/services"
-                  className="inline-flex items-center justify-center border border-primary/15 bg-white px-6 py-3 rounded-full font-semibold text-primary hover:bg-surface-alt transition-colors"
-                >
-                  Compare Massage Services
-                </Link>
+              <div className="mt-7 flex flex-wrap gap-2">
+                <TrustChip>Michelle-led session</TrustChip>
+                <TrustChip>{site.address.addressLocality}, {site.address.addressRegion}</TrustChip>
               </div>
-              <p className="mt-3 text-sm text-muted">{site.bookingNote}</p>
+
+              <CTAGroup className="mt-8">
+                <BookingLink
+                  href={bookingUrl}
+                  serviceName={service.category}
+                  ctaLocation="service_page_hero"
+                >
+                  {service.bookingLabel}
+                </BookingLink>
+                <Link href="/services" className="fine-link inline-flex min-h-11 items-center">
+                  Compare services
+                </Link>
+              </CTAGroup>
             </div>
 
-            <aside className="rounded-3xl border border-primary/10 bg-white p-8 shadow-sm">
-              <h2 className="text-2xl font-semibold text-primary mb-6">
+            <SoftPanel className="p-5 md:p-6">
+              <h2 className="text-2xl font-semibold text-primary">
                 Session lengths and pricing
               </h2>
-              <ul className="space-y-4">
+              <ul className="mt-5 divide-y divide-primary/10">
                 {service.items.map((item) => (
                   <li
                     key={item.name}
-                    className="flex justify-between items-center border-b border-primary/10 pb-4"
+                    className="flex items-center justify-between gap-4 py-4"
                   >
-                    <span className="font-medium text-foreground">{item.name}</span>
+                    <span className="font-semibold text-foreground">{item.name}</span>
                     <span className="font-semibold text-secondary">{item.price}</span>
                   </li>
                 ))}
               </ul>
-
-              <div className="mt-8 text-sm text-muted leading-relaxed space-y-2">
-                <p>{site.hoursText}</p>
-                <p>
-                  {site.address.streetAddress}, {site.address.addressLocality},{" "}
-                  {site.address.addressRegion} {site.address.postalCode}
-                </p>
-                <p>
-                  Prefer help booking? Call{" "}
-                  <a
-                    href={site.phoneHref}
-                    className="font-semibold text-secondary hover:text-primary transition-colors"
-                  >
-                    {site.phone}
-                  </a>
-                  .
-                </p>
-              </div>
-            </aside>
+              <p className="mt-5 text-sm leading-6 text-muted">
+                {publicHoursText(site.hoursText)}
+              </p>
+              <p className="mt-3 text-sm leading-6 text-muted">
+                {site.address.streetAddress}, {site.address.addressLocality},{" "}
+                {site.address.addressRegion} {site.address.postalCode}
+              </p>
+            </SoftPanel>
           </div>
+        </Shell>
+      </Section>
 
-          <div className="mt-16 grid gap-8 lg:grid-cols-2">
-            <section className="rounded-3xl border border-primary/10 bg-white p-8 shadow-sm">
-              <h2 className="text-3xl font-semibold text-primary mb-6">
-                Benefits of {service.category}
-              </h2>
-              <ul className="space-y-4 text-muted leading-relaxed">
-                {service.benefits.map((benefit) => (
-                  <li key={benefit} className="flex gap-3">
-                    <span className="text-secondary font-bold">•</span>
-                    <span>{benefit}</span>
+      <Section className="bg-[var(--surface)]">
+        <Shell className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <SectionHeading
+            label="What this session is for"
+            title={service.description}
+          />
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            <SoftPanel className="p-5">
+              <h2 className="text-xl font-semibold text-primary">Good fit if...</h2>
+              <ul className="mt-4 space-y-3 text-sm leading-6 text-muted">
+                {service.bestFor.map((item, index) => (
+                  <li key={`best-for-${index}`}>
+                    {publicText(item, "You want focused massage care.")}
                   </li>
                 ))}
               </ul>
-            </section>
-
-            <section className="rounded-3xl border border-primary/10 bg-white p-8 shadow-sm">
-              <h2 className="text-3xl font-semibold text-primary mb-6">
-                Who this service is best for
+            </SoftPanel>
+            <SoftPanel className="p-5">
+              <h2 className="text-xl font-semibold text-primary">
+                Choose a different option if...
               </h2>
-              <ul className="space-y-4 text-muted leading-relaxed">
-                {service.bestFor.map((item) => (
-                  <li key={item} className="flex gap-3">
-                    <span className="text-secondary font-bold">•</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </section>
+              <p className="mt-4 text-sm leading-6 text-muted">
+                {publicText(service.chooseDifferent, "Choose the service that best matches your goals and comfort level.")}
+              </p>
+              <p className="mt-4 text-sm leading-6 text-muted">
+                {publicText(service.safetyNote, "If you are unsure whether massage is appropriate, consult a qualified healthcare professional before booking.")}
+              </p>
+            </SoftPanel>
+          </div>
+        </Shell>
+      </Section>
+
+      <Section className="bg-[var(--background)]">
+        <Shell>
+          <SectionHeading
+            label="What to expect"
+            title="Before, during, and after your appointment."
+            className="mb-10"
+          />
+
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              ["Session overview", service.whatToExpect],
+              ["Before your appointment", service.beforeAppointment],
+              ["Session focus", service.duringSession],
+              ["Aftercare", service.aftercare],
+            ].map(([title, items]) => (
+              <SoftPanel key={title as string} className="p-5">
+                <h3 className="text-lg font-semibold text-primary">{title as string}</h3>
+                <ul className="mt-4 space-y-3 text-sm leading-6 text-muted">
+                  {(items as string[]).map((item, index) => (
+                    <li key={`${title as string}-${index}`}>
+                      {publicText(
+                        item,
+                        "Michelle will review this with you before the session."
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </SoftPanel>
+            ))}
           </div>
 
-          <section className="mt-16 rounded-3xl bg-primary text-primary-foreground p-8 md:p-10">
-            <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] items-start">
+          <SoftPanel dark className="mt-8 p-6 md:p-8">
+            <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
               <div>
-                <h2 className="text-3xl font-semibold mb-4">
-                  Customize your session with add-ons
+                <h2 className="text-3xl font-semibold text-primary-foreground">
+                  Book {service.category}.
                 </h2>
-                <p className="text-primary-foreground/80 leading-relaxed">
-                  Massage appointments can be customized with hot stones,
-                  advanced cupping therapy, CBD oil enhancement, or
-                  aromatherapy. If you are deciding between services, online
-                  booking shows currently released times and calling is always
-                  an option for quick questions.
-                </p>
               </div>
-
-              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
-                {site.addons.map((addon) => (
-                  <div
-                    key={addon.name}
-                    className="rounded-2xl border border-white/10 bg-white/10 px-4 py-4"
-                  >
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <p>{addon.name}</p>
-                        <p className="mt-1 text-sm text-primary-foreground/75">
-                          {addon.description}
-                        </p>
-                      </div>
-                      <span className="shrink-0 text-secondary font-semibold">
-                        {addon.price}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <BookingLink
+                href={bookingUrl}
+                serviceName={service.category}
+                ctaLocation="service_page_expectations"
+              >
+                {service.bookingLabel}
+              </BookingLink>
             </div>
-          </section>
+          </SoftPanel>
+        </Shell>
+      </Section>
 
-          <section className="mt-16">
-            <div className="max-w-3xl mb-10">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-secondary mb-4">
-                FAQ
-              </p>
-              <h2 className="text-4xl font-bold text-primary mb-5">
-                Questions about {service.category}
-              </h2>
-              <p className="text-lg text-muted leading-relaxed">
-                These answers cover common questions clients ask before booking{" "}
-                {service.category.toLowerCase()} at our Issaquah location.
-              </p>
-            </div>
+      <Section className="bg-[var(--surface)]">
+        <Shell className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+          <SectionHeading
+            label="Questions"
+            title="Common questions."
+          />
 
-            <div className="grid gap-5">
-              {service.faqs.map((faq) => (
-                <article
-                  key={faq.question}
-                  className="rounded-2xl border border-primary/10 bg-white p-7 shadow-sm"
-                >
-                  <h3 className="text-2xl font-semibold text-primary mb-3">
-                    {faq.question}
-                  </h3>
-                  <p className="text-muted leading-relaxed">{faq.answer}</p>
-                </article>
-              ))}
-            </div>
-          </section>
-        </div>
-      </section>
+          <FAQAccordion items={service.faqs} />
+        </Shell>
+      </Section>
 
+      <TrustReviews compact ctaLocation={`service_page_reviews_${service.slug}`} />
       <Footer />
     </main>
   );

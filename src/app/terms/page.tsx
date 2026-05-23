@@ -1,37 +1,61 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Footer from "@/components/Footer";
+import LegalShell from "@/components/LegalShell";
+import Navbar from "@/components/Navbar";
 import { site } from "@/data/site";
 
 const LAST_UPDATED = "March 22, 2026";
+const pageUrl = `${site.url}/terms`;
 
 export const metadata: Metadata = {
   title: "Terms of Service",
   description: `${site.name} terms of service covering website use, bookings, therapeutic massage policies, payments, cancellations, and client conduct.`,
+  alternates: {
+    canonical: pageUrl,
+  },
+  openGraph: {
+    title: `Terms of Service | ${site.name}`,
+    description: `${site.name} terms for bookings, massage policies, payments, cancellations, and client conduct.`,
+    url: pageUrl,
+    images: [
+      {
+        url: site.images.og,
+        width: 1200,
+        height: 630,
+        alt: `${site.name} treatment room in Issaquah`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Terms of Service | ${site.name}`,
+    description: `${site.name} terms for bookings, massage policies, payments, cancellations, and client conduct.`,
+    images: [site.images.og],
+  },
 };
 
 export default function TermsOfService() {
   return (
-    <main className="legal-page">
-      <div className="legal-card">
-        <div className="mb-8">
-          <Link
-            href="/"
-            className="text-secondary hover:text-primary transition-colors mb-8 inline-block"
-          >
-            ← Back to Home
-          </Link>
-          <h1 className="text-4xl font-serif font-bold text-primary mb-4">
-            Terms of Service
-          </h1>
-          <p className="text-muted">Last Updated: {LAST_UPDATED}</p>
-        </div>
-
-        <div className="legal-prose">
+    <>
+      <Navbar />
+      <LegalShell
+        title="Terms of Service"
+        lastUpdated={LAST_UPDATED}
+        description="The practical terms for using this website, booking massage appointments, and receiving professional services."
+        summaryLabel="Terms of service highlights"
+        summaryItems={[
+          "Services are professional therapeutic massage services only.",
+          "Appointments are requested and confirmed through Fresha or another booking method Michelle explicitly makes available.",
+          "Clients should share relevant health, injury, pregnancy, medication, or skin-sensitivity information before treatment.",
+          "Pricing, cancellation, package, gift-card, and promotion terms may also appear in Fresha or direct booking notes.",
+        ]}
+      >
           <p>
-            These Terms of Service (&quot;Terms&quot;) govern your use of the {site.name}
-            website and your booking or receipt of services from {site.legalName}
-            . By using the website, contacting us, booking an appointment, or
-            receiving services, you agree to these Terms.
+            These Terms of Service (&quot;Terms&quot;) govern your use of the {site.name}{" "}
+            website and your booking or receipt of services from {site.legalName}.
+            They are intended to keep expectations clear before an appointment:
+            what the website is for, how bookings work, and what professional
+            boundaries apply to every massage service.
           </p>
 
           <section>
@@ -48,12 +72,11 @@ export default function TermsOfService() {
           <section>
             <h2>2. Booking and Appointment Requests</h2>
             <p>
-              Appointments may be requested through our booking provider,
-              telephone, text message, or other contact methods we make
-              available. A booking is not guaranteed until accepted and
-              confirmed. We reserve the right to decline, cancel, or reschedule
-              appointments for operational, safety, legal, or professional
-              reasons.
+              Appointments may be requested through our Fresha booking page or
+              another booking method Michelle explicitly makes available. A
+              booking is not guaranteed until accepted and confirmed. We reserve
+              the right to decline, cancel, or reschedule appointments for
+              operational, safety, legal, or professional reasons.
             </p>
           </section>
 
@@ -64,8 +87,8 @@ export default function TermsOfService() {
               reduce your hands-on treatment time if required to avoid delaying
               later appointments. Missed appointments, late cancellations, or
               no-shows may be charged in accordance with the booking terms
-              presented at the time of booking or the policies communicated to
-              you directly.
+              presented in Fresha, displayed at the time of booking, or
+              communicated to you directly.
             </p>
           </section>
 
@@ -76,7 +99,8 @@ export default function TermsOfService() {
               in U.S. dollars and may be updated at any time before booking.
               Unless otherwise stated, payment is due at the time of service.
               Promotional offers, discounts, gift certificates, or package terms
-              may be subject to additional conditions.
+              may be subject to additional terms shown when purchased, booked,
+              or redeemed.
             </p>
           </section>
 
@@ -199,7 +223,7 @@ export default function TermsOfService() {
           <section>
             <h2>15. Contact Information</h2>
             <p>
-              Questions about these Terms may be directed to:
+              Questions about these Terms may be directed in writing to:
             </p>
             <p>
               {site.legalName}
@@ -208,12 +232,10 @@ export default function TermsOfService() {
               <br />
               {site.address.addressLocality}, {site.address.addressRegion}{" "}
               {site.address.postalCode}
-              <br />
-              {site.phone}
             </p>
           </section>
-        </div>
-      </div>
-    </main>
+      </LegalShell>
+      <Footer />
+    </>
   );
 }
