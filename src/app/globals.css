@@ -44,6 +44,7 @@
 
 html {
   background: var(--background);
+  scroll-behavior: smooth;
 }
 
 body {
@@ -55,11 +56,14 @@ body {
   background-position: center;
   background-repeat: repeat, repeat, repeat;
   background-size: auto, 320px 320px, 1440px 1440px;
+  background-attachment: fixed;
   color: var(--foreground);
   font-family: var(--font-sans);
   padding-bottom: 4.75rem;
   position: relative;
   text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1,
@@ -107,6 +111,7 @@ body > * {
   pointer-events: none;
   position: absolute;
   z-index: -1;
+  will-change: opacity;
 }
 
 .quiet-section:nth-of-type(even)::before {
@@ -213,6 +218,7 @@ body > * {
   box-shadow: var(--shadow-soft);
   overflow: hidden;
   position: relative;
+  aspect-ratio: auto;
 }
 
 .fine-link {
