@@ -7,20 +7,19 @@ export default function Analytics() {
   return (
     <>
       {gtmContainerId ? (
-        <Script id="gtm-init" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({
-              'gtm.start': new Date().getTime(),
-              event: 'gtm.js'
-            });
-            var firstScript = document.getElementsByTagName('script')[0];
-            var gtmScript = document.createElement('script');
-            gtmScript.async = true;
-            gtmScript.src = 'https://www.googletagmanager.com/gtm.js?id=${gtmContainerId}';
-            firstScript.parentNode.insertBefore(gtmScript, firstScript);
-          `}
-        </Script>
+        <>
+          <Script id="gtm-dataLayer" strategy="lazyOnload">
+            {`window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+  'gtm.start': new Date().getTime(),
+  event: 'gtm.js'
+});`}
+          </Script>
+          <Script
+            src={`https://www.googletagmanager.com/gtm.js?id=${gtmContainerId}`}
+            strategy="lazyOnload"
+          />
+        </>
       ) : null}
 
       {ga4MeasurementId ? (
@@ -30,15 +29,17 @@ export default function Analytics() {
             strategy="lazyOnload"
           />
           <Script id="ga4-init" strategy="lazyOnload">
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              window.gtag = gtag;
-              gtag('js', new Date());
-              gtag('config', '${ga4MeasurementId}', {
-                send_page_view: true
-              });
-            `}
+            {`(function(){
+  try {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){window.dataLayer.push(arguments);}
+    window.gtag = window.gtag || gtag;
+    gtag('js', new Date());
+    gtag('config', '${ga4MeasurementId}', { send_page_view: true });
+  } catch (e) {
+    // swallow errors to avoid blocking UI in privacy-restricted environments
+  }
+})();`}
           </Script>
         </>
       ) : null}

@@ -31,13 +31,23 @@ export function trackEvent(
     ...params,
   };
 
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    event: eventName,
-    ...eventParams,
-  });
+  // push to dataLayer (defensive)
+  try {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: eventName,
+      ...eventParams,
+    });
+  } catch (e) {
+    // swallow to avoid blocking UI if a privacy extension or a strict browser prevents this
+  }
 
+  // call gtag if available, guarded
   if (typeof window.gtag === "function") {
-    window.gtag("event", eventName, eventParams);
+    try {
+      window.gtag("event", eventName, eventParams);
+    } catch (e) {
+      // swallow to avoid blocking UI
+    }
   }
 }
